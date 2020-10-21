@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.Mapper_kgj">
+	<cache />
+	<select id="listBuyBoard" resultType="Buy">
+		select * from buy order by buyno desc
+	</select>
+	
+	<select id="detailBuyBoard" parameterType="int" resultType="Buy">
+		select * from buy where buyno = #{buyno}
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
