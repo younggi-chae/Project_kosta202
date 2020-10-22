@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -11,8 +13,7 @@
 <title>MyPage</title>
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
 	rel="stylesheet">
 
 <!-- Css Styles -->
@@ -26,106 +27,154 @@
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/style_cyg.css" type="text/css">
 </head>
-<body>
 
-	<!-- Header Section Begin -->
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-2">
-					<div class="header__logo">
-						<a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
-					</div>
-				</div>
-				<div class="col-lg-10">
-					<div class="header__nav">
-						<nav class="header__menu">
-							<ul>
-								<li class="active"><a href="./index.html">Home</a></li>
-								<li><a href="./car.html">Cars</a></li>
-								<li><a href="./blog.html">Blog</a></li>
-								<li><a href="#">Pages</a>
-									<ul class="dropdown">
-										<li><a href="./about.html">About Us</a></li>
-										<li><a href="./car-details.html">Car Details</a></li>
-										<li><a href="./blog-details.html">Blog Details</a></li>
-									</ul></li>
-								<li><a href="./about.html">About</a></li>
-								<li><a href="./contact.html">Contact</a></li>
-							</ul>
-						</nav>
-						<div class="header__nav__widget">
-							<div class="header__nav__widget__btn">
-								<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"
-									class="search-switch"><i class="fa fa-search"></i></a>
-							</div>
-							<a href="#" class="primary-btn">¸¶ÀÌ ÆäÀÌÁö</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="canvas__open">
-				<span class="fa fa-bars"></span>
-			</div>
-		</div>
-	</header>
-	<!-- Header Section End -->
+<body>	
+	
+	<!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__widget">
+            <a href="#" class="primary-btn">ë¡œê·¸ì¸/íšŒì›ê°€ì…</a>
+        </div>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu End -->
+    <!-- Header Section Begin -->
+<body>   
+
+       <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="./car.html">êµ¬ë§¤ ê²Œì‹œíŒ</a></li>
+                                <li><a href="./blog.html">êµ¬ë§¤ ë“±ë¡</a></li>
+                                <li><a href="#">íŒë§¤ ë“±ë¡</a>
+                                </li>
+                                <li><a href="./about.html">ë§ˆì´í˜ì´ì§€</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__nav__widget">
+                            <a href="#" class="primary-btn">ë¡œê·¸ì¸/íšŒì›ê°€ì…</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+	
+	<!-- Services Section Begin -->
 	<section class="services spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>È¸¿ø Á¤º¸</h2>
-						<span>Information</span>
+						<h2>ë§ˆì´ í˜ì´ì§€</h2>
+						<span>My Page</span>
 					</div>
 				</div>
-			</div>
-
+			</div>			
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="testimonial__item">
-						<div class="testimonial__item__author">
-							<div class="testimonial__item__author__pic">
-							<br><br><br><br><br><br><br>&emsp;
-								<img src="/Architecture-kosta202/resources/img/testimonial/testimonial-1.png" alt="">
-								<br><br>
-								<div><input type="button" value="ÇÁ·ÎÇÊ º¯°æ"></div><br><br><br>
-								<div><p><a href="#">ºñ¹Ğ¹øÈ£ º¯°æ </a></p></div><br>
-								<div><p> <a href="#">°èÁ¤ »èÁ¦</a></p></div><br>								
-							</div>							
-							<div class="row">
-								<div class="col-lg-12 col-md-12 col-sm-12">
-								<div class="testimonial__item">											
-							<div><h3>°³ÀÎÁ¤º¸</h3></div><br><br><br>
-							<p>ÀÌ¸§</p>
-							<div><input type="text" value="È«±æµ¿"></div><br>
-							<p>ÀÌ¸ŞÀÏ</p>
-							<div><input type="text" value="dudrl5555@naver.com"></div><br>
-							<p>ÀüÈ­¹øÈ£</p>
-							<div><input type="text" value="010-0000-0000"></div><br>
-							<p>ÁÖ¼Ò</p>
-							<div><input type="text" value="¼­¿ï½Ã ±İÃµ±¸ °¡»êµ¿"></div><br>
-							<p>°èÁÂ¹øÈ£</p>
-							<div>
-							<select>
-								<option>½ÅÇÑÀºÇà</option>
-								<option>±¹¹ÎÀºÇà</option>								
-								<option>¿ì¸®ÀºÇà</option>
-								<option>KEBÇÏ³ªÀºÇà</option>
-							</select>&emsp;
-							<input type="text" value="110-111-111111">
-							</div><br><br><br>	
-							<input type="button" value="Á¤º¸ ¼öÁ¤">						
-							</div>
-							</div>
-							</div>														
-						</div>
-						</div>	
-					</div>
-					</div>
-				</div>			
+				<div class="col-lg-12 col-md-6 col-sm-6">
+					<div class="services__item">										
+			<form action="memberUpdateAction.cyg" method="post" enctype="multipart/form-data">
+							<div class="col-lg-12">
+				<div class="section-title">	
+					<div class="testimonial__item__author__text">			
+						<h4>KOSTA íšŒì›ë‹˜</h4>									
+					</div><br>					
+					<div>						
+						<c:choose>
+							<c:when test="${!empty member.picture }">
+								<img src="/Architecture-kosta202/resources/img/upload_cyg/${member.picture }">
+							</c:when>
+							<c:otherwise>
+								<c:out value="NO IMAGE"></c:out>
+							</c:otherwise>
+						</c:choose>							
+				 	</div><br>				  
+				  <div align="center">
+					<input type="file" id="file" name="picture" style="display: none;" />
+					<input type="button" value="í”„ë¡œí•„ ì‚¬ì§„ ë³€ê²½" onclick="document.getElementById('file').click();" />
+				 </div>				
+				</div>				
+			</div>			
+				<input type="hidden" name="id" value="${member.id }">
+				<p>ì´ë¦„</p><div><input type="text" name="name" value="${member.name }" placeholder="ì´ë¦„ ë³€ê²½.."></div><br>
+				<p>ë¹„ë°€ë²ˆí˜¸</p><div><input type="password" name="password" value="${member.name }" placeholder="ë¹„ë°€ë²ˆí˜¸ ë³€ê²½.."></div><br>		
+				<p>ì´ë©”ì¼</p><div><input type="text" name="email" value="${member.email }" placeholder="ì´ë©”ì¼ ë³€ê²½.."></div><br>
+				<p>ì „í™”ë²ˆí˜¸</p><div><input type="text" name="phoneno" value="${member.phoneNo }" placeholder="ì „í™”ë²ˆí˜¸ ë³€ê²½.."></div><br>				
+				<p>ì£¼ì†Œ</p><div><input type="text" name="address" value="${member.address }" placeholder="ì£¼ì†Œ ë³€ê²½.."></div><br>				
+				<p>í•œì¤„ì†Œê°œ</p><div><input type="text" name="introduction" value="${member.introduction }" placeholder="í•œì¤„ì†Œê°œ ë³€ê²½.."></div><br>				
+				<input type="submit" value="ì •ë³´ìˆ˜ì •">			
+			</form>									
+		</div>
+	</div>			
+</div>
+		</div>
+		<div align="center" id="delete">
+			<a href="memberDeleteAction.cyg" class="primary-btn">íšŒì›íƒˆí‡´</a>
+		</div>	
 	</section>
+		
+	<!-- Services Section End -->
+	
+	 <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="/Architecture-kosta202/resources/img/footer-bg.jpg">
+        <div class="container">
+            <div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__title">
+                            <h2>ê³ ê° ì„¼í„°</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__option">
+                            <div class="option__item"><i class="fa fa-phone"></i> (+12) 345 678 910</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> Colorlib@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright__text">
+                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+            </div>          
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
 
 	<!-- Js Plugins -->
 	<script src="/Architecture-kosta202/resources/js/jquery-3.3.1.min.js"></script>
@@ -137,5 +186,26 @@
 	<script src="/Architecture-kosta202/resources/js/jquery.slicknav.js"></script>
 	<script src="/Architecture-kosta202/resources/js/owl.carousel.min.js"></script>
 	<script src="/Architecture-kosta202/resources/js/main.js"></script>
+	<script type="text/javascript">
+		$('#delete').click(function() {
+			confirm("ì •ë§ íšŒì›íƒˆí‡´ë¥¼ í•˜ì‹œê² ìŠµë‹ˆê¹Œ??")
+		});
+	</script>
+	<!-- <script type="text/javascript">
+		$('#check').click(function() {
+			var pwd1 = $("#check1").val();
+			var pwd2 = $("#check2").val();
+
+			if (pwd1 != '' && pwd2 == '') {
+				null;
+			} else if (pwd1 != "" || pwd2 != "") {
+				if (pwd1 == pwd2) {
+					alert("ì •ë³´ê°€ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.")
+				} else {
+					alert("ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜í•©ë‹ˆë‹¤.")
+				}
+			}
+		});
+	</script> -->
 </body>
 </html>

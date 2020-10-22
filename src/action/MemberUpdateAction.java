@@ -3,22 +3,21 @@ package action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.DealListModel_cyg;
-
+import model.Member;
 import service.Service_cyg;
 
-public class DealListAction_cyg implements Action {
+public class MemberUpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
-		Service_cyg service = Service_cyg.getInstance();
-		
-		DealListModel_cyg listModel = service.listDealService(request);		
+		Service_cyg service = Service_cyg.getInstance();		
 				
-		request.setAttribute("listModel", listModel);		
-		forward.setRedirect(false);
-		forward.setPath("/myPage-deal.jsp");
+		service.updateMemberService(request);
+		
+		forward.setRedirect(true);
+		forward.setPath("mypageMainAction.cyg");
 		return forward;
 	}
+
 }

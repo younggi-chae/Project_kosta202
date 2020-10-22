@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/style_cyg.css" type="text/css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> <!-- ½ºÀ§Ä¡  -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> <!-- ìŠ¤ìœ„ì¹˜  -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
 </head>
 <body>
@@ -38,7 +38,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__widget">
-            <a href="#" class="primary-btn">·Î±×ÀÎ/È¸¿ø°¡ÀÔ</a>
+            <a href="#" class="primary-btn">ë¡œê·¸ì¸/íšŒì›ê°€ìž…</a>
         </div>
         <div class="offcanvas__logo">
             <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
@@ -61,15 +61,15 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./car.html">±¸¸Å °Ô½ÃÆÇ</a></li>
-                                <li><a href="./blog.html">±¸¸Å µî·Ï</a></li>
-                                <li><a href="#">ÆÇ¸Å µî·Ï</a>
+                                <li><a href="./car.html">êµ¬ë§¤ ê²Œì‹œíŒ</a></li>
+                                <li><a href="./blog.html">êµ¬ë§¤ ë“±ë¡</a></li>
+                                <li><a href="#">íŒë§¤ ë“±ë¡</a>
                                 </li>
-                                <li><a href="./about.html">¸¶ÀÌÆäÀÌÁö</a></li>
+                                <li><a href="./about.html">ë§ˆì´íŽ˜ì´ì§€</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
-                            <a href="#" class="primary-btn">·Î±×ÀÎ/È¸¿ø°¡ÀÔ</a>
+                            <a href="#" class="primary-btn">ë¡œê·¸ì¸/íšŒì›ê°€ìž…</a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>¾Ë¸²</h2>
+						<h2>ì•Œë¦¼</h2>
 						<span>Notice</span>
 					</div>
 				</div>
@@ -94,28 +94,28 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="testimonial__item">											
-						<div><h3>¼³Á¤</h3></div><br><br>
+						<div><h3>ì„¤ì •</h3></div><br><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch1">
    							 <label class="custom-control-label" for="customSwitch1">SMS</label>
 						</div><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch2">
-   							 <label class="custom-control-label" for="customSwitch2">ÀÌ¸ÞÀÏ</label>
+   							 <label class="custom-control-label" for="customSwitch2">ì´ë©”ì¼</label>
 						</div><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch3">
-   							 <label class="custom-control-label" for="customSwitch3">¸Þ½ÃÁö</label>
+   							 <label class="custom-control-label" for="customSwitch3">ë©”ì‹œì§€</label>
 						</div><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch4">
-   							 <label class="custom-control-label" for="customSwitch4">¹æÇØ±ÝÁö ½Ã°£ ¼³Á¤</label>
+   							 <label class="custom-control-label" for="customSwitch4">ë°©í•´ê¸ˆì§€ ì‹œê°„ ì„¤ì •</label>
 						</div><br>						
 						<div style="float: left">
 						<select>							
 						<optgroup label="ampm">
-							<option>¿ÀÀü</option>							
-							<option>¿ÀÈÄ</option>																		
+							<option>ì˜¤ì „</option>							
+							<option>ì˜¤í›„</option>																		
 						</optgroup>&emsp;
 						</select>	
 						</div>
@@ -137,7 +137,7 @@
 						</optgroup>
 						</select>	
 						</div>
-						<div style="float: left">ºÎÅÍ</div>
+						<div style="float: left">ë¶€í„°</div>
 						<div style="float: left">
 						<select>				
 						<optgroup label="after">
@@ -156,7 +156,7 @@
 						</optgroup>														
 						</select>	
 						</div>
-						±îÁö										
+						ê¹Œì§€										
 					</div>						
 				</div>
 			</div>								

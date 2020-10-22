@@ -58,5 +58,13 @@ public class DealListModel_cyg {
 
 		public void setEndPage(int endPage) {
 			this.endPage = endPage;
-		}	
+		}
+
+		@Override
+		public String toString() {
+			return "DealListModel_cyg [list=" + list + ", requestPage=" + requestPage + ", totalPageCount="
+					+ totalPageCount + ", startPage=" + startPage + ", endPage=" + endPage + "]";
+		}
+		
+		
 }
