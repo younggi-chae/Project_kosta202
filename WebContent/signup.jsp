@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,8 @@
 	href="/Architecture-kosta202/resources/fonts_jsh/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"
 	href="/Architecture-kosta202/resources/fonts_jsh/Linearicons-Free-v1.0.0/icon-font.min.css">
-<link rel="stylesheet" type="text/css" href="/Architecture-kosta202/resources/vendor_jsh/animate/animate.css">
+<link rel="stylesheet" type="text/css"
+	href="/Architecture-kosta202/resources/vendor_jsh/animate/animate.css">
 <link rel="stylesheet" type="text/css"
 	href="/Architecture-kosta202/resources/vendor_jsh/css-hamburgers/hamburgers.min.css">
 <link rel="stylesheet" type="text/css"
@@ -25,44 +26,72 @@
 	href="/Architecture-kosta202/resources//Architecture-kosta202/resources/vendor_jsh/select2/select2.min.css">
 <link rel="stylesheet" type="text/css"
 	href="/Architecture-kosta202/resources//Architecture-kosta202/resources/vendor_jsh/daterangepicker/daterangepicker.css">
-<link rel="stylesheet" type="text/css" href="/Architecture-kosta202/resources/css/util_jsh.css">
-<link rel="stylesheet" type="text/css" href="/Architecture-kosta202/resources/css/main_jsh.css">
+<link rel="stylesheet" type="text/css"
+	href="/Architecture-kosta202/resources/css/util_jsh.css">
+<link rel="stylesheet" type="text/css"
+	href="/Architecture-kosta202/resources/css/main_jsh.css">
 
 
-<link rel="stylesheet" href="/Architecture-kosta202/resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/Architecture-kosta202/resources/css/style_jsh.css" type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/magnific-popup.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="/Architecture-kosta202/resources/css/style_jsh.css"
+	type="text/css">
 
 
+<!-- <script type="text/javascript" src="signupTest.js"></script> -->
 
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
-<script type="text/javascript">
 
 
-//sessionStorage.setItem("phoneData", document.getElementById('phoneNo').value ); // 저장
+<script type="text/javascript" src="signupTest.js">
+	//sessionStorage.setItem("phoneData", document.getElementById('phoneNo').value ); // 저장
 
-var phoneNo =  $('#phoneNo').val();
-sessionStorage.setItem("phoneData", phoneNo);
-
+	//var phoneNo =  $('#phoneNo').val();
+	//sessionStorage.setItem("phoneData", phoneNo);
 </script>
 
 
-<script>
+<script type="text/javascript">
+
+	function openIdChk(){
+		window.name = "아이디 중복체크";
+		window.open("./idCheckForm.jsp","chkForm","width=500, height=300,resizable=no,scrollbars=no");
+	}
+
+	function inputIdChk(){
+		document.userInfo.idDuplication.value="idUncheck";
+	}
 
 
 
 
-
-	function popup() {
+function popup() {
 		//const phoneNo = document.getElementById('phoneNo').value;
 
 		var url = "/Architecture-kosta202/phone.jsp";
@@ -71,6 +100,8 @@ sessionStorage.setItem("phoneData", phoneNo);
 		window.open(url, name, option);
 
 	}
+	
+	
 
 	function sample4_execDaumPostcode() {
 		new daum.Postcode(
@@ -138,7 +169,7 @@ sessionStorage.setItem("phoneData", phoneNo);
 
 
 </head>
-<body>
+<body onload="">
 	<!-- Header Section Begin -->
 	<header class="header">
 		<div class="container">
@@ -194,15 +225,18 @@ sessionStorage.setItem("phoneData", phoneNo);
 					</span>
 
 					<form class="login100-form validate-form flex-sb flex-w"
-						method="post" action="signupAction.sh">
+						method="post" onsubmit="return validate()"
+						action="detailInfoFormAction.sh" name="userInfo">
 
+
+						<!-- action="signupAction.sh" -->
 
 						<span class="txt1 p-b-11"> 이름 </span>
 						<div class="wrap-input100 validate-input m-b-12"
 							data-validate="이름을 입력하세요">
 
 
-							<input class="input100" type="text" name="name"
+							<input class="input100" type="text" name="name" id="name"
 								placeholder="실명을 입력하세요"> <span class="focus-input100"></span>
 						</div>
 
@@ -211,34 +245,46 @@ sessionStorage.setItem("phoneData", phoneNo);
 							data-validate="아이디를 입력하세요">
 
 
-							<input class="input100" type="text" name="id"
-								placeholder="아이디를 입력하세요"> <span class="focus-input100"></span>
+							<input class="input100"  style="width: 61%; float: left" type="text" name="id" id="id"
+								placeholder="아이디를 입력하세요">
+								
+								<input type="button" onclick="openIdCheck()" class="login100-form-btn" value="중복검사">
+								<input type="hidden" name="idDuplication" value="idUncheck">
+						
+						
 						</div>
+						
+						
+
+
+							
+						
+						
 
 						<span class="txt1 p-b-11"> 비밀번호 </span>
 						<div class="wrap-input100 validate-input m-b-12"
-							data-validate="비밀번호를 입력하세요">
+							data-validate="영문자,숫자,특수문자를 포함하여 8자리 이상 입력하세요">
 							<span class="btn-show-pass"> <i class="fa fa-eye"></i>
-							</span> <input class="input100" placeholder="영문자와 숫자를 포함하여 8자리 이상"
-								type="password" name="password"> <span
+							</span> <input class="input100" placeholder="영문자,숫자,특수문자를 포함 8자리"
+								type="password" name="password" id="password"> <span
 								class="focus-input100"></span>
 						</div>
 
+						
 						<span class="txt1 p-b-11"> 이메일 </span>
 						<div class="wrap-input100 validate-input m-b-12"
 							data-validate="이메일을 입력하세요">
 
 
-							<input class="input100" type="text" placeholder="이메일을 입력하세요"
-								name="email"> <span class="focus-input100"></span>
+							<input class="input100" type="email" placeholder="이메일을 입력하세요"
+								name="email" id="email"> <span class="focus-input100"></span>
 						</div>
 
 						<span class="txt1 p-b-11"> 성별 </span>
-						<div class="wrap-input100 validate-input m-b-12"
-							data-validate="성별을 체크하세요">
+						<div class="wrap-input100 validate-input m-b-12" data-validate="성별을 체크하세요">
 							<label><input type="radio" name="sex" value="m">남자</label>
-							<label><input type="radio" name="sex" value="w">여자</label> 
-							
+							<label><input type="radio" name="sex" value="w">여자</label>
+
 							<span class="focus-input100"></span>
 						</div>
 
@@ -248,28 +294,17 @@ sessionStorage.setItem("phoneData", phoneNo);
 							data-validate="전화번호를 입력하세요">
 
 							<input style="width: 61%; float: left" class="input100"
-								placeholder="010-1111-1111" name="phoneNo" id="phoneNo" value="123333">
-								
-								-
-								
-								
-								<input type="button" onclick="popup()" class="login100-form-btn"
+								placeholder="01012345678" name="phoneNo" id="phoneNo">
+
+
+
+
+							<input type="button" onclick="popup()" class="login100-form-btn"
 								value="번호확인"> <a href="javascript:popup()"
 								target="_blank"></a>
 
-							</button>
 						</div>
 
-						<span class="txt1 p-b-11"> 인증번호 입력 </span>
-						<div class="wrap-input100 validate-input m-b-12"
-							data-validate="인증번호를 입력하세요">
-
-							<input style="width: 61%; float: left" class="input100"
-								type="password" name="pass"> <input type="button"
-								onclick="phone()" class="login100-form-btn" value="인증확인">
-							</button>
-
-						</div>
 
 
 						<span class="txt1 p-b-11"> 우편번호 </span>
@@ -387,22 +422,32 @@ sessionStorage.setItem("phoneData", phoneNo);
 	</div>
 	<!-- Search End -->
 
-	<script src="Architecture-kosta202/resources/vendor_jsh/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/Architecture-kosta202/resources/vendor_jsh/animsition/js/animsition.min.js"></script>
-	<script src="/Architecture-kosta202/resources/vendor_jsh/bootstrap/js/popper.js"></script>
-	<script src="/Architecture-kosta202/resources/vendor_jsh/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/Architecture-kosta202/resources/vendor_jsh/select2/select2.min.js"></script>
-	<script src="/Architecture-kosta202/resources/vendor_jsh/daterangepicker/moment.min.js"></script>
-	<script src="/Architecture-kosta202/resources/vendor_jsh/daterangepicker/daterangepicker.js"></script>
-	<script src="/Architecture-kosta202/resources/vendor_jsh/countdowntime/countdowntime.js"></script>
-	<script src="/Architecture-kosta202/resources/js/main.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/jquery/jquery-3.2.1.min.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/animsition/js/animsition.min.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/bootstrap/js/popper.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/select2/select2.min.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/daterangepicker/moment.min.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/daterangepicker/daterangepicker.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/vendor_jsh/countdowntime/countdowntime.js"></script>
+	<script src="/Architecture-kosta202/resources/js/main_jsh.js"></script>
 
 
 	<script src="/Architecture-kosta202/resources/js/jquery-3.3.1.min.js"></script>
 	<script src="/Architecture-kosta202/resources/js/bootstrap.min.js"></script>
-	<script src="/Architecture-kosta202/resources/js/jquery.nice-select.min.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/js/jquery.nice-select.min.js"></script>
 	<script src="/Architecture-kosta202/resources/js/jquery-ui.min.js"></script>
-	<script src="/Architecture-kosta202/resources/js/jquery.magnific-popup.min.js"></script>
+	<script
+		src="/Architecture-kosta202/resources/js/jquery.magnific-popup.min.js"></script>
 	<script src="/Architecture-kosta202/resources/js/mixitup.min.js"></script>
 	<script src="/Architecture-kosta202/resources/js/jquery.slicknav.js"></script>
 	<script src="/Architecture-kosta202/resources/js/owl.carousel.min.js"></script>

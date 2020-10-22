@@ -73,6 +73,27 @@ public class DAO_jsh {
 		return password;
 		
 	}
+	
+	public int detailInfo(Member member) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(Mapper_jsh.class).detailInfo(member);
+			
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
 
-
+	}
 }

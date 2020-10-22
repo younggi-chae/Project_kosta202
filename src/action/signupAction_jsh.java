@@ -15,7 +15,7 @@ public class signupAction_jsh implements Action {
 		ActionForward forward = new ActionForward();
 		Service_jsh service = Service_jsh.getInstance();
 		
-		service.insertMemberService(request);
+		service.detailInfoService(request);
 
 
 		forward.setRedirect(true);

@@ -1,11 +1,17 @@
 package service;
 
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sun.imageio.plugins.common.ImageUtil;
 
 import dao.DAO_jsh;
+import model.ImageUtil_jsh;
 import model.Member;
 
 
@@ -23,6 +29,15 @@ public class Service_jsh {
 	public int insertMemberService(HttpServletRequest request)throws Exception{
 		request.setCharacterEncoding("utf-8");
 		
+		//파일업로드(경로,파일크기,인코딩,파일이름중첩 정책)
+		/*
+		 * String uploadPath = request.getRealPath("upload"); int size = 20*1024*1024;
+		 * //20MB
+		 * 
+		 * MultipartRequest multi = new MultipartRequest(request, uploadPath, size,
+		 * "utf-8", new DefaultFileRenamePolicy());
+		 */
+				
 		Member member = new Member();
 		member.setId(request.getParameter("id"));
 		member.setPassword(request.getParameter("password"));
@@ -31,12 +46,42 @@ public class Service_jsh {
 		member.setSex(request.getParameter("sex"));
 		member.setName(request.getParameter("name"));
 		member.setEmail(request.getParameter("email"));
-	
+	//	member.setPicture("");
+	//    member.setIntroduction(request.getParameter("introduction"));
+		
+		/*
+		 * //파일업로드 DB(파일이름 저장) if(multi.getFilesystemName("fname")!=null) { String fname
+		 * = (String)multi.getFilesystemName("fname"); member.setPicture(fname);
+		 * 
+		 * //썸네일 이미지(gif,jpg)=>aa.gif, aa.jpg String pattern =
+		 * fname.substring(fname.indexOf(".")+1); //gif String head =
+		 * fname.substring(0,fname.indexOf(".")); //aa
+		 * 
+		 * //원본 File 객체 String imagePath = uploadPath+"\\"+fname; File src = new
+		 * File(imagePath); //원본파일 객체
+		 * 
+		 * //썸네일 File 객체 String thumPath = uploadPath+"\\"+head+"_small."+pattern; File
+		 * dest = new File(thumPath);
+		 * 
+		 * if(pattern.equals("gif")||pattern.equals("jpg")) { ImageUtil_jsh.resize(src,
+		 * dest, 100, ImageUtil_jsh.RATIO); }
+		 * 
+		 * }
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+	    
+		request.setAttribute("member", member);
+		
+		
 		
 		return dao.insertMember(member);
 	}
 
-	public int loginService(HttpServletRequest request) {
+	public int loginService(HttpServletRequest request)throws Exception {
 
 		
 		String chk_id = request.getParameter("username");
@@ -80,6 +125,52 @@ public class Service_jsh {
 
 		
 		
+		
+	}
+
+	public int detailInfoService(HttpServletRequest request) throws Exception{
+		request.setCharacterEncoding("utf-8");
+		//파일업로드(경로,파일크기,인코딩,파일이름중첩 정책)
+				String uploadPath = request.getRealPath("upload");
+				int size = 20*1024*1024; //20MB
+				String id = request.getParameter("id");
+				String introduction = "";
+				introduction=request.getParameter("introduction");
+				String picture="";
+				Member member = null;
+			
+				
+				MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());
+				
+				//파일업로드 DB(파일이름 저장)
+				if(multi.getFilesystemName("fname")!=null) {
+					picture = (String)multi.getFilesystemName("fname");
+					//member.setPicture(fname);
+					
+					//썸네일 이미지(gif,jpg)=>aa.gif, aa.jpg
+					String pattern = picture.substring(picture.indexOf(".")+1);  //gif
+					String head = picture.substring(0,picture.indexOf("."));  //aa
+					
+					//원본 File 객체
+					String imagePath = uploadPath+"\\"+picture;
+					File src = new File(imagePath);  //원본파일 객체
+					
+					//썸네일 File 객체
+					String thumPath = uploadPath+"\\"+head+"_small."+pattern;
+					File dest = new File(thumPath);
+					
+					if(pattern.equals("gif")||pattern.equals("jpg")) {
+						ImageUtil_jsh.resize(src, dest, 100, ImageUtil_jsh.RATIO);
+					}
+					
+					
+	
+				member = new Member(id, picture, introduction);
+				
+				
+				}
+				
+				return dao.detailInfo(member);
 		
 	}
 

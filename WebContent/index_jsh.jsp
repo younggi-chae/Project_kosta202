@@ -80,7 +80,7 @@
                                 <li class="active"><a href="./index.html">Home</a></li>
                                 <li><a href="./car.html">구매 게시판</a></li>
                                 <li><a href="./blog.html">구매 등록</a></li>
-                                <li><a href="#">판매 등록</a>
+                                <li><a href="kjj/registerFormAction.kjj">판매 등록</a>
 
                                 </li>
                                 <li><a href="./about.html">마이페이지</a></li>

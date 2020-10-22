@@ -86,6 +86,20 @@ public class Controller_jsh extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+    	}else if(command.equals("detailInfoFormAction.sh")) {
+    		action = new detailInfoFormAction_jsh();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("detailInfoAction.sh")) {
+    		action = new detailInfoAction_jsh();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
     	
     

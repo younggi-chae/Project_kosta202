@@ -20,6 +20,17 @@ public class Member implements Serializable {
 	
 	public Member() {}
 	
+	
+	
+	public Member(String id, String picture, String introduction) {
+		super();
+		this.id = id;
+		this.picture = picture;
+		this.introduction = introduction;
+	}
+
+
+
 	public Member(String id, String password, String name, String phoneNo, String email, String sex, String address,
 			String picture, String introduction, double avgScore, String isMember, String isAlarm,
 			String alarmStartTime, String alarmEndTime) {
