@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri ="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__widget">
-            <a href="#" class="primary-btn">∑Œ±◊¿Œ/»∏ø¯∞°¿‘</a>
+            <a href="#" class="primary-btn">Î°úÍ∑∏Ïù∏/ÌöåÏõêÍ∞ÄÏûÖ</a>
         </div>
         <div class="offcanvas__logo">
             <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
@@ -64,15 +64,15 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./car.html">±∏∏≈ ∞‘Ω√∆«</a></li>
-                                <li><a href="./blog.html">±∏∏≈ µÓ∑œ</a></li>
-                                <li><a href="#">∆«∏≈ µÓ∑œ</a>
+                                <li><a href="./car.html">Íµ¨Îß§ Í≤åÏãúÌåê</a></li>
+                                <li><a href="./blog.html">Íµ¨Îß§ Îì±Î°ù</a></li>
+                                <li><a href="#">ÌåêÎß§ Îì±Î°ù</a>
                                 </li>
-                                <li><a href="./about.html">∏∂¿Ã∆‰¿Ã¡ˆ</a></li>
+                                <li><a href="./about.html">ÎßàÏù¥ÌéòÏù¥ÏßÄ</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
-                            <a href="#" class="primary-btn">∑Œ±◊¿Œ/»∏ø¯∞°¿‘</a>
+                            <a href="#" class="primary-btn">Î°úÍ∑∏Ïù∏/ÌöåÏõêÍ∞ÄÏûÖ</a>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>∞≈∑°≥ªø™ »Æ¿Œ</h2>
+						<h2>Í±∞ÎûòÎÇ¥Ïó≠ ÌôïÏù∏</h2>
 						<span>Transactional Information</span>
 					</div>
 				</div>
@@ -107,9 +107,9 @@
                              <div class="col-lg-8 col-md-6">
                                 <div class="car__filter__option__item car__filter__option__item--left">                                   
                                     <select>
-                                    	<option value="">¿¸√º</option>
-                                        <option value="">¡¯«‡¡ﬂ</option>
-                                        <option value="">∞≈∑°øœ∑·</option>
+                                    	<option value="">Ï†ÑÏ≤¥</option>
+                                        <option value="">ÏßÑÌñâÏ§ë</option>
+                                        <option value="">Í±∞ÎûòÏôÑÎ£å</option>
                                     </select>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                                 <div class="car__filter__option__item car__filter__option__item--right">
                                    <div class="car__search">                            
                            			<form action="dealListAction.cyg" method="post">											
-											<input type="text" name="searchKey" size="10" placeholder="∞Àªˆ...">
+											<input type="text" name="searchKey" size="10" placeholder="Í≤ÄÏÉâ...">
 											<button type="submit">
 												<i class="fa fa-search"></i>
 											</button>
@@ -130,7 +130,7 @@
                     <div class="row">
                     	<c:choose>
                     		<c:when test="${empty listModel.list }">
-                    			<div class="col-lg-12 col-md-4" align="center"><h4>µ•¿Ã≈Õ∞° æ¯Ω¿¥œ¥Ÿ.</h4></div>
+                    			<div class="col-lg-12 col-md-4" align="center"><h4>Îç∞Ïù¥ÌÑ∞Í∞Ä ÏóÜÏäµÎãàÎã§.</h4></div>
                     		</c:when>
                     		
                     		<c:when test="${!empty listModel.list }"> 
@@ -138,10 +138,14 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-1.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-8.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-6.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-3.jpg" alt="">                                    
+                                   <c:choose>
+                                 	<c:when test="${!empty sell.picture }">
+                                 		<img src="/Architecture-kosta202/resources/img/upload_kjj/${sell.picture }" alt="">
+                                 	</c:when>
+                                 	<c:when test="${empty sell.picture }">
+                                 		<img src="/Architecture-kosta202/resources/img/cars/car-1.jpg" alt="">
+                                 	</c:when>
+                                 </c:choose>                                                                   
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">                                    	
@@ -155,14 +159,15 @@
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
+                                    <span class="car-option">${deal.status }</span>
                                         <c:choose>
-											<c:when test="${deal.status == '¡¯«‡¡ﬂ' }">
+											<c:when test="${deal.status == 'ÏßÑÌñâÏ§ë' }">
 												<span class="car-option">${deal.status }</span>		
 											</c:when>
 											<c:otherwise>
 												<span class="car-option sale">${deal.status }</span>		 
 											</c:otherwise>
-										</c:choose>                                       
+										</c:choose>                                 
                                         <h6><fmt:formatNumber type="number" maxFractionDigits="3" value="${deal.price }"/></h6>
                                     </div>
                                 </div>
@@ -172,7 +177,7 @@
                         </c:when>
                         </c:choose>                       
                     </div>                    
-                   	<!-- ∆‰¿Ã¬° √≥∏Æ -->
+                   	<!-- ÌéòÏù¥Ïßï Ï≤òÎ¶¨ -->
 					<div class="pagination__option">
 						<c:if test="${listModel.startPage > 5 }">
 							<a href="dealListAction.cyg?pageNum=${listModel.startPage -1 }"><span
@@ -209,7 +214,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__title">
-                            <h2>∞Ì∞¥ ºæ≈Õ</h2>
+                            <h2>Í≥†Í∞ù ÏÑºÌÑ∞</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

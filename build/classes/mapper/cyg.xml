@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.Mapper_cyg">
+	<cache />			
+	<select id="listBuy" parameterType="Search" resultType="Buy">
+		select * from buy
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator="OR" 
+						open="(" close=")">					
+					${item} like #{searchKey}
+				</foreach>
+			</where>
+		</if>
+		order by buyno desc
+	</select>
+	
+	<select id="countPage" parameterType="Search" resultType="int">
+		select count(*) from buy
+		<if test= "area != null">
+			<where>				
+				<foreach collection="area" item="item" separator="OR"
+						open="(" close=")" >
+							${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	<select id="listDeal" parameterType="Search" resultType="DealSell">		
+		select d.*, s.* from deal d , sell s where d.sellid = s.id and d.sellno = s.SELLNO
+      <if test="area != null">
+         <where>
+            <foreach collection="area" item="item" separator="OR" 
+                  open="(" close=")">               
+               ${item} like #{searchKey}
+            </foreach>
+         </where>
+      </if>
+      order by dealno desc
+	</select>
+	
+	<select id="countDeal" parameterType="Search" resultType="int">
+		select count(*) from deal
+		<if test= "area != null">
+			<where>				
+				<foreach collection="area" item="item" separator="OR"
+						open="(" close=")" >
+							${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	<select id="listSell" parameterType="Search" resultType="Sell">		
+		select * from sell		
+      <if test="area != null">
+         <where>
+            <foreach collection="area" item="item" separator="OR" 
+                  open="(" close=")">               
+               ${item} like #{searchKey}
+            </foreach>
+         </where>
+      </if>
+      order by sellno desc
+	</select>	
+	
+	<select id="countSell" parameterType="Search" resultType="int">
+		select count(*) from sell
+		<if test= "area != null">
+			<where>				
+				<foreach collection="area" item="item" separator="OR"
+						open="(" close=")" >
+							${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	<select id="detailMember" parameterType="String" resultType="Member">
+		select * from member where id = #{id}
+	</select>
+	
+	<update id="updateMember" parameterType="Member">
+		update member 
+		set name = #{name}, password = #{password}, email = #{email}, phoneNo = #{phoneNo}, 
+		address = #{address}, introduction = #{introduction}, picture = #{picture}
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from member where id = #{id}
+	</delete>
+</mapper>

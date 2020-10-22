@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri ="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -37,7 +40,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__widget">
-            <a href="#" class="primary-btn">∑Œ±◊¿Œ/»∏ø¯∞°¿‘</a>
+            <a href="#" class="primary-btn">Î°úÍ∑∏Ïù∏/ÌöåÏõêÍ∞ÄÏûÖ</a>
         </div>
         <div class="offcanvas__logo">
             <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
@@ -62,15 +65,15 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./car.html">±∏∏≈ ∞‘Ω√∆«</a></li>
-                                <li><a href="./blog.html">±∏∏≈ µÓ∑œ</a></li>
-                                <li><a href="#">∆«∏≈ µÓ∑œ</a>
+                                <li><a href="./car.html">Íµ¨Îß§ Í≤åÏãúÌåê</a></li>
+                                <li><a href="./blog.html">Íµ¨Îß§ Îì±Î°ù</a></li>
+                                <li><a href="#">ÌåêÎß§ Îì±Î°ù</a>
                                 </li>
-                                <li><a href="./about.html">∏∂¿Ã∆‰¿Ã¡ˆ</a></li>
+                                <li><a href="./about.html">ÎßàÏù¥ÌéòÏù¥ÏßÄ</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
-                            <a href="#" class="primary-btn">∑Œ±◊¿Œ/»∏ø¯∞°¿‘</a>
+                            <a href="#" class="primary-btn">Î°úÍ∑∏Ïù∏/ÌöåÏõêÍ∞ÄÏûÖ</a>
                         </div>
                     </div>
                 </div>
@@ -87,7 +90,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>∞ﬂ¿˚º≠ »Æ¿Œ</h2>
+						<h2>Í≤¨Ï†ÅÏÑú ÌôïÏù∏</h2>
 						<span>Estimate Information</span>
 					</div>
 				</div>
@@ -103,103 +106,91 @@
                     <div class="car__filter__option" style="height: 74px; background-color: white;">                    
                         <div class="row">
                              <div class="col-lg-8 col-md-6">
-                                <a href="#" class="primary-btn">º±≈√ªË¡¶</a>&emsp;
-                                <a href="#" class="primary-btn">¿¸√ºªË¡¶</a>&emsp;                               
+                                <a href="#" class="primary-btn">ÏÑ†ÌÉùÏÇ≠Ï†ú</a>&emsp;
+                                <a href="#" class="primary-btn">Ï†ÑÏ≤¥ÏÇ≠Ï†ú</a>&emsp;                               
+                           		<a href="#" class="primary-btn">Í¥ÄÏã¨Î¶¨Ïä§Ìä∏ Ï∂îÍ∞Ä</a>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="car__filter__option__item car__filter__option__item--right">                                   
-                                    <a href="#" class="primary-btn">∞¸Ω…∏ÆΩ∫∆Æ √ﬂ∞°</a>
+                                    <div class="car__search">                            
+                           			<form action="dealListAction.cyg" method="post">											
+											<input type="text" name="searchKey" size="10" placeholder="Í≤ÄÏÉâ...">
+											<button type="submit">
+												<i class="fa fa-search"></i>
+											</button>
+										</form>
+                       				 </div>           
                                 </div>
                             </div>                           
                         </div>
                     </div>
-                    <div class="row">                    	
+                    <div class="row">
+                    	<c:choose>
+                    	 <c:when test="${empty listModel.list }">
+                    			<div class="col-lg-12 col-md-4" align="center"><h4>Îç∞Ïù¥ÌÑ∞Í∞Ä ÏóÜÏäµÎãàÎã§.</h4></div>
+                    		</c:when>
+                    		
+                    		<c:when test="${!empty listModel.list }"> 
+                    			<c:forEach var="sell" items="${listModel.list }">            	
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-1.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-8.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-6.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-3.jpg" alt="">
+                                 <c:choose>
+                                 	<c:when test="${!empty sell.picture }">
+                                 		<img src="/Architecture-kosta202/resources/img/upload_kjj/${sell.picture }" alt="">
+                                 	</c:when>
+                                 	<c:when test="${empty sell.picture }">
+                                 		<img src="/Architecture-kosta202/resources/img/cars/car-1.jpg" alt="">
+                                 	</c:when>
+                                 </c:choose>
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">∆«∏≈¿⁄id</div>
-                                        <h5><a href="#">∆˜∏£Ω¶</a></h5>
+                                        <div class="label-date">${sell.id }</div>
+                                        <h5><a href="#">${sell.itemName }</a></h5>
                                         <ul>
-                                            <li><span>ƒ´≈◊∞Ì∏Æ</span></li>
-                                            <li><span>≈∞øˆµÂ1</span></li>
-                                            <li><span>≈∞øˆµÂ2</span></li>
+                                            <li><span>${sell.keyword1 }</span></li>
+                                            <li><span>${sell.keyword2 }</span></li>
+                                            <li><span>${sell.keyword3 }</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
                                         <span class="car-option sale" style="background-color: #d2d2d2;"><input type="checkbox"></span>
-                                        <h6>500,000,000</h6>
+                                        <h6><fmt:formatNumber type="number" maxFractionDigits="3" value="${sell.price }"/></h6>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                             
                         </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-2.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-8.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-6.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-4.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">∆«∏≈¿⁄id</div>
-                                        <h5><a href="#">µµø‰≈∏</a></h5>
-                                        <ul>
-                                            <li><span>ƒ´≈◊∞Ì∏Æ</span></li>
-                                            <li><span>≈∞øˆµÂ1</span></li>
-                                            <li><span>≈∞øˆµÂ2</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option sale" style="background-color: #d2d2d2;"><input type="checkbox"></span>
-                                        <h6>120,000,000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-3.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-8.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-6.jpg" alt="">
-                                    <img src="/Architecture-kosta202/resources/img/cars/car-5.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">∆«∏≈¿⁄id</div>
-                                        <h5><a href="#">BMW</a></h5>
-                                        <ul>
-                                            <li><span>ƒ´≈◊∞Ì∏Æ</span></li>
-                                            <li><span>≈∞øˆµÂ1</span></li>
-                                            <li><span>≈∞øˆµÂ2</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option sale" style="background-color: #d2d2d2;"><input type="checkbox"></span>
-                                        <h6>200,000,000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                       
-                        
+                         </c:forEach>
+                        </c:when>
+                        </c:choose>                         
+                      </div>                        
                     </div>
                     <div class="pagination__option">
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><span class="arrow_carrot-2right"></span></a>
-                    </div>
+						<c:if test="${listModel.startPage > 5 }">
+							<a href="dealListAction.cyg?pageNum=${listModel.startPage -1 }"><span
+								class="arrow_carrot-2left"></span></a>
+						</c:if>
+
+						<c:forEach var="pageNo" begin="${listModel.startPage }"
+							end="${listModel.endPage }">
+							<c:choose>
+								<c:when test="${listModel.requestPage == pageNo }">
+									<a class="active" href="dealListAction.cyg?pageNum=${pageNo }">${pageNo }</a>		
+								</c:when>
+								<c:otherwise>
+									<a href="dealListAction.cyg?pageNum=${pageNo }">${pageNo }</a>
+								</c:otherwise>
+							</c:choose>							
+						</c:forEach>
+
+						<c:if test="${listModel.endPage < listModel.totalPageCount }">
+							<a href="dealListAction.cyg?pageNum=${listModel.endPage +1 }"><span
+								class="arrow_carrot-2right"></span></a>
+						</c:if>
+					</div>
                 </div>
-            </div>
-        </div>
+            </div>       
     </section>
     <!-- Car Section End -->
 	
@@ -210,7 +201,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__title">
-                            <h2>∞Ì∞¥ ºæ≈Õ</h2>
+                            <h2>Í≥†Í∞ù ÏÑºÌÑ∞</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

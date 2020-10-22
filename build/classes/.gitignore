@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 /model/
 /service/
 /mapper/
 /dao/
 /action/
+=======
+/action/
+/mapper/
+/controller/
+/dao/
+/model/
+/service/
+>>>>>>> refs/heads/master

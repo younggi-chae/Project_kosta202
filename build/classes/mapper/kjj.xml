@@ -4,12 +4,34 @@
 
 <mapper namespace="mapper.Mapper_kjj">
 	<cache />
-	<insert id="registerSell" parameterType="Sell">
-		INSERT INTO Sell VALUES(seq_SellNo_Sell.nextval, '1234', #{itemName}, #{categoryNo}, #{keyword1}, #{keyword2}, #{keyword3}, 
-		<foreach collection="type" item="item" open="'" close="'" separator=" ">
-			${item}
-		</foreach>
-		, #{region}, #{itemCondition}, #{price}, #{picture}, '등록')
+	<insert id="registerSell" parameterType="Sell_kjj">
+		INSERT INTO Sell VALUES(seq_SellNo_Sell.nextval, 'aaa', #{itemName}, #{categoryNo}, #{keyword1}, #{keyword2}, #{keyword3}, #{type}, #{region}, #{itemCondition}, #{price}, #{picture, jdbcType=VARCHAR}, '등록')
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.Mapper_kjj">
+	<cache />
+	<insert id="registerSell" parameterType="Sell_kjj">
+		INSERT INTO Sell VALUES(seq_SellNo_Sell.nextval, #{id}, #{itemName}, #{categoryNo}, #{keyword1}, #{keyword2}, #{keyword3}, #{type}, #{region}, #{itemCondition}, #{price}, #{picture, jdbcType=VARCHAR}, '등록')
 	</insert>
 
 </mapper>
@@ -28,3 +50,4 @@
 
 
 
+>>>>>>> kjj

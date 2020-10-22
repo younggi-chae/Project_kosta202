@@ -10,16 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.MypageMainAction_cyg;
+import action.SellListAction_cyg;
 import action.Action;
 import action.ActionForward;
 import action.BuyListAction_cyg;
 import action.DealListAction_cyg;
+import action.MemberDeleteAction;
+import action.MemberDetailAction_cyg;
+import action.MemberUpdateAction;
 
 @WebServlet("/Mypage/*")
-public class MypageController_cyg extends HttpServlet {
+public class Controller_cyg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MypageController_cyg() {
+    public Controller_cyg() {
         super();        
     }
     
@@ -55,6 +59,34 @@ public class MypageController_cyg extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+    	} else if(command.equals("memberDetailAction.cyg")) {
+    		action = new MemberDetailAction_cyg();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("sellListAction.cyg")) {
+    		action = new SellListAction_cyg();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("memberUpdateAction.cyg")) {
+    		action = new MemberUpdateAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("memberDeleteAction.cyg")) {
+    		action = new MemberDeleteAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
     		
     	if(forward != null) {
@@ -74,5 +106,4 @@ public class MypageController_cyg extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-
 }

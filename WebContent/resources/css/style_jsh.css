@@ -166,9 +166,9 @@ ol {
 	display: inline-block;
 	font-size: 15px;
 	padding: 12px 24px;
-	color: white;
+	color: #ffffff;
 	font-weight: 700;
-	background: #827676;
+	background: #db2d2e;
 	border-radius: 2px;
 }
 
@@ -3706,4 +3706,5 @@ ol {
 		font-size: 24px;
 		width: 100%;
 	}
+
 }
