@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -102,7 +103,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./car.html">구매 게시판</a></li>
+                                <li><a href="listBuyBoard.kgj">구매 게시판</a></li>
                                 <li><a href="./blog.html">구매 등록</a></li>
                                 <li><a href="#">판매 등록</a>
 <!--                                     <ul class="dropdown"> -->
@@ -162,9 +163,13 @@
                         <div class="car__details__sidebar__model">
                             <ul>
                                 <li>아이디 <span>${buy.id }</span></li>
-                                <li>구매희망가격 <span>${buy.minPrice } ~ ${buy.maxPrice }</span></li>
-                                <li>거래방법 <span></span></li>
-                                <li>직거래 지역 <span>${buy.region }</span></li>
+                                <li>구매희망가격 <span><fmt:formatNumber value="${buy.minPrice }" pattern="##,###"/> ~ <fmt:formatNumber value="${buy.maxPrice }" pattern="##,###"/></span></li>
+                                <li>거래방법 <span>${buy.type }</span></li>
+                                <c:choose>
+                                	<c:when test="${buy.region != null }">
+                                		<li>직거래 지역 <span>${buy.region }</span></li>
+                                	</c:when>
+                                </c:choose>
                             </ul>
                             <a href="#" class="primary-btn">견적서 보내기</a>
                         </div>

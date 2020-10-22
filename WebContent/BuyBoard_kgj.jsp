@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -229,23 +230,23 @@
                         </div>
                     </div>
                     <div class="row">
-                    	<c:forEach var="listBuy" items="${listBuy }">
+                    	<c:forEach var="buyList" items="${buyListModel.list }">
 	                        <div class="col-lg-4 col-md-4">
 	                            <div class="car__item">
 	                                    <img src="/Architecture-kosta202/resources/img/cars/memberPicture-2_kgj.jpg" alt="">
 	                                <div class="car__item__text">
 	                                    <div class="car__item__text__inner">
-	                                        <div class="label-date">${listBuy.id }</div>
-	                                        <h5><a href="listBuyBoardDetail.kgj?buyNo=${listBuy.buyNo }">${listBuy.title }</a></h5>
+	                                        <div class="label-date">${buyList.id }</div>
+	                                        <h5><a href="listBuyBoardDetail.kgj?buyNo=${buyList.buyNo }">${buyList.title }</a></h5>
 	                                        <ul>
-	                                            <li>${listBuy.keyword1 }</li>
-	                                            <li>${listBuy.keyword2 }</li>
-	                                            <li>${listBuy.keyword3 }</li>
+	                                            <li>${buyList.keyword1 }</li>
+	                                            <li>${buyList.keyword2 }</li>
+	                                            <li>${buyList.keyword3 }</li>
 	                                        </ul>
 	                                    </div>
 	                                    <div class="car__item__price">
 	                                        <span class="car-option">가격</span>
-	                                        <h6>${listBuy.minPrice } ~ ${listBuy.maxPrice }</h6>
+	                                        <h6><fmt:formatNumber value="${buyList.minPrice }" pattern="##,###"/> ~ <fmt:formatNumber value="${buyList.maxPrice }" pattern="##,###"/></h6>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -253,10 +254,22 @@
                         </c:forEach>
                     </div>
                     <div class="pagination__option">
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><span class="arrow_carrot-2right"></span></a>
+                    	<c:if test="${buyListModel.startPage > 5 }">
+                    		<a href="listBuyBoard.kgj?pageNum=${buyListModel.startPage - 1 }"><span class="arrow_carrot-2left"></span></a>
+                        </c:if>
+                        <c:forEach var="pageNo" begin="${buyListModel.startPage }" end="${buyListModel.endPage }">
+                        	<c:choose>
+                        		<c:when test="${buyListModel.requestPage == pageNo }">
+                        			<a href="listBuyBoard.kgj?pageNum=${pageNo }" class="active">${pageNo }</a>
+                        		</c:when>
+                        		<c:otherwise>
+                           			<a href="listBuyBoard.kgj?pageNum=${pageNo }">${pageNo }</a>
+                        		</c:otherwise>
+                        	</c:choose>
+                        </c:forEach>
+                        <c:if test="${buyListModel.endPage < buyListModel.totalPageCount }">
+                        	<a href="listBuyBoard.kgj?pageNum=${buyListModel.endPage + 1 }"><span class="arrow_carrot-2right"></span></a>
+                        </c:if>
                     </div>
                 </div>
             </div>

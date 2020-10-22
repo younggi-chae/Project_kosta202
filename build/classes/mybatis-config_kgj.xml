@@ -16,6 +16,7 @@
 		<typeAlias type="model.Review" alias="Review"/>
 		<typeAlias type="model.Sell" alias="Sell"/>
 		<typeAlias type="model.WishList" alias="WishList"/>
+		<typeAlias type="model.Search_kgj" alias="Search_kgj"/>
 	</typeAliases>
 	
 	<environments default="development">

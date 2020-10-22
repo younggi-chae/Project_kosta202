@@ -4,12 +4,32 @@
 
 <mapper namespace="mapper.Mapper_kgj">
 	<cache />
-	<select id="listBuyBoard" resultType="Buy">
-		select * from buy order by buyno desc
+<!-- 	<select id="listBuyBoard" resultType="Buy"> -->
+<!-- 		select * from buy order by buyno desc -->
+<!-- 	</select> -->
+	
+	<select id="listBuyBoard" parameterType="Search_kgj" resultType="Buy">
+		select * from buy
+			<if test="bigClassifier != null">
+  						where categoryno = (select category.CATEGORYNO from category
+  							where BIGCLASSIFIER like '%#{bigClassifier}%' and MEDIUMCLASSIFIER like '%#{mediumClassifier}%')
+  							and buy.KEYWORD1 like '%#{keyword1}%' or buy.KEYWORD2 like '%#{keyword2}%' or buy.KEYWORD3 like '%#{keyword3}%'
+  			</if>
+  				order by buyno desc
 	</select>
 	
 	<select id="detailBuyBoard" parameterType="int" resultType="Buy">
 		select * from buy where buyno = #{buyno}
+	</select>
+	
+	<select id="countBuyBoard" parameterType="Search_kgj" resultType="int">
+		select count(*) from buy
+			<if test="bigClassifier != null">
+  						where categoryno = (select category.CATEGORYNO from category
+  							where BIGCLASSIFIER like '%#{bigClassifier}%' and MEDIUMCLASSIFIER like '%#{mediumClassifier}%')
+  							and buy.KEYWORD1 like '%#{keyword1}%' or buy.KEYWORD2 like '%#{keyword2}%' or buy.KEYWORD3 like '%#{keyword3}%'
+  			</if>
+  				order by buyno desc
 	</select>
 	
 	
