@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -27,6 +27,7 @@
 </head>
 
 <body>	
+	
 	<!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -36,7 +37,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__widget">
-            <a href="#" class="primary-btn">·Î±×ÀÎ/È¸¿ø°¡ÀÔ</a>
+            <a href="#" class="primary-btn">ë¡œê·¸ì¸/íšŒì›ê°€ìž…</a>
         </div>
         <div class="offcanvas__logo">
             <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
@@ -61,15 +62,15 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./car.html">±¸¸Å °Ô½ÃÆÇ</a></li>
-                                <li><a href="./blog.html">±¸¸Å µî·Ï</a></li>
-                                <li><a href="#">ÆÇ¸Å µî·Ï</a>
+                                <li><a href="./car.html">êµ¬ë§¤ ê²Œì‹œíŒ</a></li>
+                                <li><a href="./blog.html">êµ¬ë§¤ ë“±ë¡</a></li>
+                                <li><a href="#">íŒë§¤ ë“±ë¡</a>
                                 </li>
-                                <li><a href="./about.html">¸¶ÀÌÆäÀÌÁö</a></li>
+                                <li><a href="./about.html">ë§ˆì´íŽ˜ì´ì§€</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
-                            <a href="#" class="primary-btn">·Î±×ÀÎ/È¸¿ø°¡ÀÔ</a>
+                            <a href="#" class="primary-btn">ë¡œê·¸ì¸/íšŒì›ê°€ìž…</a>
                         </div>
                     </div>
                 </div>
@@ -80,14 +81,14 @@
         </div>
     </header>
     <!-- Header Section End -->
-
+	
 	<!-- Services Section Begin -->
 	<section class="services spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>¸¶ÀÌ ÆäÀÌÁö</h2>
+						<h2>ë§ˆì´ íŽ˜ì´ì§€</h2>
 						<span>My Page</span>
 					</div>
 				</div>
@@ -105,8 +106,9 @@
 							class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 							class="fa fa-star"></i>
 					</div>
-					<h5>
-						KOSTA °í°´´Ô&emsp; <span><a href="myPage-info.html">Á¤º¸ ¼öÁ¤</a></span>								
+				
+					<h5>						
+						KOSTA ê³ ê°ë‹˜&emsp; <span><a href="memberDetailAction.cyg?id=bbb">ì •ë³´ ìˆ˜ì •</a></span>								
 					</h5>															
 					<span>dudrl5555@naver.com</span>					
 				</div>
@@ -119,28 +121,28 @@
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="services__item">
 						<img src="/Architecture-kosta202/resources/img/services/services-1.png" alt="">
-						<h5>°Å·¡³»¿ª È®ÀÎ</h5>
+						<h5>ê±°ëž˜ë‚´ì—­ í™•ì¸</h5>
 						<a href="dealListAction.cyg"><i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="services__item">
 						<img src="/Architecture-kosta202/resources/img/services/services-2.png" alt="">
-						<h5>±¸¸Åµî·Ï È®ÀÎ</h5>
+						<h5>êµ¬ë§¤ë“±ë¡ í™•ì¸</h5>
 						<a href="buyListAction.cyg"><i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="services__item">
 						<img src="/Architecture-kosta202/resources/img/services/services-3.png" alt="">
-						<h5>°ßÀû¼­ È®ÀÎ</h5>
-						<a href="myPage-estimate.html"><i class="fa fa-long-arrow-right"></i></a>
+						<h5>ê²¬ì ì„œ í™•ì¸</h5>
+						<a href="sellListAction.cyg"><i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>				
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="services__item">
 						<img src="/Architecture-kosta202/resources/img/services/services-4.png" alt="">
-						<h5>°ßÀû¼­ °ü½É¸®½ºÆ®</h5>
+						<h5>ê²¬ì ì„œ ê´€ì‹¬ë¦¬ìŠ¤íŠ¸</h5>
 						<a href="myPage-wishList.html"><i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
@@ -148,14 +150,14 @@
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="services__item">
 						<img src="/Architecture-kosta202/resources/img/services/services-1.png" alt="">
-						<h5>³ªÀÇ ÆòÁ¡ ¹× ¸®ºä</h5>
+						<h5>ë‚˜ì˜ í‰ì  ë° ë¦¬ë·°</h5>
 						<a href="#"><i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="services__item">
 						<img src="/Architecture-kosta202/resources/img/services/services-2.png" alt="">
-						<h5>¾Ë¸² ¼³Á¤</h5>
+						<h5>ì•Œë¦¼ ì„¤ì •</h5>
 						<a href="myPage-notice.html"><i class="fa fa-long-arrow-right"></i></a>
 					</div>
 					</div>
@@ -173,7 +175,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__title">
-                            <h2>°í°´ ¼¾ÅÍ</h2>
+                            <h2>ê³ ê° ì„¼í„°</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

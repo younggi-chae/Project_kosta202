@@ -6,8 +6,8 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="model.Buy" alias="Buy"/>
-		<typeAlias type="model.Deal" alias="Deal"/>	
-		<typeAlias type="model.Deal_Sell_cyg" alias="DealSell"/>
+		<typeAlias type="model.Sell" alias="Sell"/>
+		<typeAlias type="model.Deal_Sell_cyg" alias="DealSell"/>			
 		<typeAlias type="model.Member" alias="Member" />	
 		<typeAlias type="model.Search_cyg" alias="Search"/>			
 	</typeAliases>
@@ -22,7 +22,7 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="mapper/Mypage.xml"/>
+		<mapper resource="mapper/cyg.xml"/>
 	</mappers>
 	
 </configuration>

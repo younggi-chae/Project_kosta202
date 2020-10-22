@@ -33,6 +33,7 @@ public class DAO_kjj {
 		int re = -1;
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
+			System.out.println("sell in DAO : " + sell);
 			re = sqlSession.getMapper(Mapper_kjj.class).registerSell(sell);
 			if (re > 0) {
 				sqlSession.commit();
@@ -48,3 +49,4 @@ public class DAO_kjj {
 		}
 	}
 }
+
