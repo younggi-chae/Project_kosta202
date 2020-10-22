@@ -92,5 +92,5 @@
 	
 	<delete id="deleteMember" parameterType="String">
 		delete from member where id = #{id}
-	</delete>		
+	</delete>
 </mapper>

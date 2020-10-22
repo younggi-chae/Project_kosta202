@@ -231,7 +231,6 @@ public class Deal_Sell_cyg implements Serializable {
 				+ ", keyword1=" + keyword1 + ", keyword2=" + keyword2 + ", keyword3=" + keyword3 + ", type=" + type
 				+ ", region=" + region + ", itemCondition=" + itemCondition + ", price_1=" + price_1 + ", picture="
 				+ picture + ", status_1=" + status_1 + "]";
-	}
-	
+	}	
 	
 }

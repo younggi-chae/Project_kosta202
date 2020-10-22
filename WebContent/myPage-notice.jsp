@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/style_cyg.css" type="text/css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> <!-- 스위치  -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> <!-- �ㅼ��移�  -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
 </head>
 <body>
@@ -38,7 +38,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__widget">
-            <a href="#" class="primary-btn">로그인/회원가입</a>
+            <a href="#" class="primary-btn">濡�洹몄��/����媛���</a>
         </div>
         <div class="offcanvas__logo">
             <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
@@ -61,15 +61,15 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./car.html">구매 게시판</a></li>
-                                <li><a href="./blog.html">구매 등록</a></li>
-                                <li><a href="#">판매 등록</a>
+                                <li><a href="./car.html">援щℓ 寃�����</a></li>
+                                <li><a href="./blog.html">援щℓ �깅�</a></li>
+                                <li><a href="#">��留� �깅�</a>
                                 </li>
-                                <li><a href="./about.html">마이페이지</a></li>
+                                <li><a href="./about.html">留��댄���댁�</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
-                            <a href="#" class="primary-btn">로그인/회원가입</a>
+                            <a href="#" class="primary-btn">濡�洹몄��/����媛���</a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>알림</h2>
+						<h2>��由�</h2>
 						<span>Notice</span>
 					</div>
 				</div>
@@ -94,28 +94,28 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="testimonial__item">											
-						<div><h3>설정</h3></div><br><br>
+						<div><h3>�ㅼ��</h3></div><br><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch1">
    							 <label class="custom-control-label" for="customSwitch1">SMS</label>
 						</div><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch2">
-   							 <label class="custom-control-label" for="customSwitch2">이메일</label>
+   							 <label class="custom-control-label" for="customSwitch2">�대���</label>
 						</div><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch3">
-   							 <label class="custom-control-label" for="customSwitch3">메시지</label>
+   							 <label class="custom-control-label" for="customSwitch3">硫���吏�</label>
 						</div><br>
 						<div class="custom-control custom-switch">
    							 <input type="checkbox" class="custom-control-input" id="customSwitch4">
-   							 <label class="custom-control-label" for="customSwitch4">방해금지 시간 설정</label>
+   							 <label class="custom-control-label" for="customSwitch4">諛⑺�닿�吏� ��媛� �ㅼ��</label>
 						</div><br>						
 						<div style="float: left">
 						<select>							
 						<optgroup label="ampm">
-							<option>오전</option>							
-							<option>오후</option>																		
+							<option>�ㅼ��</option>							
+							<option>�ㅽ��</option>																		
 						</optgroup>&emsp;
 						</select>	
 						</div>
@@ -137,7 +137,7 @@
 						</optgroup>
 						</select>	
 						</div>
-						<div style="float: left">부터</div>
+						<div style="float: left">遺���</div>
 						<div style="float: left">
 						<select>				
 						<optgroup label="after">
@@ -156,7 +156,7 @@
 						</optgroup>														
 						</select>	
 						</div>
-						까지										
+						源�吏�										
 					</div>						
 				</div>
 			</div>								

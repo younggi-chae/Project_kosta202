@@ -64,7 +64,7 @@ public class DealListModel_cyg {
 		public String toString() {
 			return "DealListModel_cyg [list=" + list + ", requestPage=" + requestPage + ", totalPageCount="
 					+ totalPageCount + ", startPage=" + startPage + ", endPage=" + endPage + "]";
-		}
-		
+		}	
 		
 }
+
