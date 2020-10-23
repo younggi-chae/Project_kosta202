@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import com.sun.imageio.plugins.common.ImageUtil;
 import dao.DAO_jsh;
 import model.ImageUtil_jsh;
 import model.Member;
@@ -37,7 +38,7 @@ public class Service_jsh {
 		member.setSex(request.getParameter("sex"));
 		member.setName(request.getParameter("name"));
 		member.setEmail(request.getParameter("email"));
-	
+
 	    
 		request.setAttribute("member", member);
 		
@@ -100,27 +101,25 @@ public class Service_jsh {
 	public int detailInfoService(HttpServletRequest request) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		//파일업로드(경로,파일크기,인코딩,파일이름중첩 정책)
-				
-		String uploadPath = request.getRealPath("upload");
-		int size = 20*1024*1024; //20MB
-		
-		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());
 
-	
-				String id = multi.getParameter("id");
-				String introduction=multi.getParameter("introduction");
+				String uploadPath = request.getRealPath("upload");
+				int size = 20*1024*1024; //20MB
+				String id = request.getParameter("id");
+				String introduction = "";
+				introduction=request.getParameter("introduction");
 				String picture="";
 				
-				Member member = new Member();
+				
 			
-				member.setId(id);
-				member.setIntroduction(introduction);
 				
-				
+				MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());
+
 				//파일업로드 DB(파일이름 저장)
 				if(multi.getFilesystemName("fname")!=null) {
 					picture = (String)multi.getFilesystemName("fname");
+
 					member.setPicture(picture);
+
 					
 					//썸네일 이미지(gif,jpg)=>aa.gif, aa.jpg
 					String pattern = picture.substring(picture.indexOf(".")+1);  //gif
@@ -138,7 +137,6 @@ public class Service_jsh {
 						ImageUtil_jsh.resize(src, dest, 100, ImageUtil_jsh.RATIO);
 					}
 					
-					
 
 				
 				}
@@ -147,13 +145,12 @@ public class Service_jsh {
 		
 	}
 
+
 	public int chk_idService(String chk_id)throws Exception {
 		
 		return dao.chk_id(chk_id);
 		
 	}
-
-
 
 
 }

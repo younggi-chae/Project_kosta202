@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+/model/
+/service/
+/mapper/
+/dao/
+/action/
+=======
 /action/
 /controller/
 /dao/
@@ -10,3 +17,4 @@
 /mybatis-config_krg.xml
 /mybatis-config_original.xml
 /service/
+>>>>>>> refs/heads/master

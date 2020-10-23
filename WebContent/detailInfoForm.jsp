@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +62,7 @@
 	type="text/css">
 
 
+
 <script type="text/javascript">
 
 function imgUpload2(input) {
@@ -83,6 +86,7 @@ function imgClick() {
 
 
 </script>
+
 </head>
 <body onload="">
 	<!-- Header Section Begin -->
@@ -118,11 +122,6 @@ function imgClick() {
 		</div>
 	</header>
 	<!-- Header Section End -->
-	
-	
-	
-	
-	
 
 
 	<section class="services spad">
@@ -137,6 +136,7 @@ function imgClick() {
 			</div>
 
 			<div class="limiter">
+
 
 				<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55" 
 					style="text-align=center; width: 600px">
@@ -185,16 +185,15 @@ function imgClick() {
 		<div style="margin: 0 auto"><br>
 <a href="mainAction.sh" >다음에 등록할래요</a>
 		</div></form>
+
 				</div>
 			</div>
 		</div>
 
 	</section>
-	
-	
-	
-	
+
 	<div id="dropDownSelect1"></div>
+
 
 
 
@@ -305,4 +304,5 @@ function imgClick() {
     <script src="resources/js/owl.carousel.min.js"></script>
     <script src="resources/js/main.js"></script>
 </body>
+
 </html>

@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="utf-8">
+
 <title>아이디 중복 체크</title>
     
     <style type="text/css">
+
         #wrap {
             width: 490px;
             text-align :center;
@@ -26,10 +28,12 @@
         }
  
    </style>
+
     
    
     
 </head>
+
 <body onload="pValue()">
 <div id="wrap">
     <br>
@@ -47,7 +51,9 @@
         <input id="useBtn" type="button" value="사용하기" onclick="sendCheckValue()">
     </div>
 </div>    
+
 </body>
+
 
 
 </html>

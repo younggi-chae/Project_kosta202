@@ -83,6 +83,7 @@
 
 
 
+
 function setCookie(cName, cValue, cDay){
 	var expire = new Date();
 	expire.setDate(expire.getDate() + cDay);
@@ -100,6 +101,7 @@ function setCookie(cName, cValue, cDay){
 		
 		window.name = "아이디 중복체크";
 		window.open("idCheckAction.sh","chkForm","width=250, height=100,resizable=no,scrollbars=no");
+
 	}
 
 
@@ -197,7 +199,9 @@ function popup() {
 					<div class="header__nav">
 						<nav class="header__menu">
 							<ul>
+
 								<li class="active"><a href="mainAction.sh">Home</a></li>
+
 								<li><a href="./car.html">구매 게시판</a></li>
 								<li><a href="./blog.html">구매 등록</a></li>
 								<li><a href="#">판매 등록</a></li>
@@ -240,7 +244,9 @@ function popup() {
 
 					<form class="login100-form validate-form flex-sb flex-w"
 						method="post" onsubmit="return validate()"
+
 						action="signupAction.sh" name="userInfo">
+
 
 
 						<!-- action="signupAction.sh" -->
@@ -255,15 +261,18 @@ function popup() {
 						</div>
 
 						<span class="txt1 p-b-11"> 아이디 </span>
+
 						<div class="wrap-input100 validate-input m-b-12" data-validate="아이디를 입력하세요">
 
 
 							<input class="input100"  style="width: 61%; float: left" type="text" name="id" id="id"
 								placeholder="아이디를 입력하세요">
 								
+
 								
 								<input type="button" onclick="openIdChk()" class="login100-form-btn" value="중복검사">
 							
+
 						
 						
 						</div>
@@ -468,4 +477,5 @@ function popup() {
 	<script src="/Architecture-kosta202/resources/js/main.js"></script>
 
 </body>
+
 </html>

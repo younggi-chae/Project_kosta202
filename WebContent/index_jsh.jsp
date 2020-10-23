@@ -470,7 +470,7 @@
     <script src="/Architecture-kosta202/resources/js/jquery.slicknav.js"></script>
     <script src="/Architecture-kosta202/resources/js/owl.carousel.min.js"></script>
     <script src="/Architecture-kosta202/resources/js/main.js"></script>
-    
+
     
     <script src="/Architecture-kosta202/resources/vendor_jsh/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/Architecture-kosta202/resources/vendor_jsh/animsition/js/animsition.min.js"></script>
@@ -483,4 +483,5 @@
 	<script src="/Architecture-kosta202/resources/js/main_jsh.js"></script>
     
 </body>
+
 </html>
