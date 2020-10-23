@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import mapper.Mapper_kgj;
 import model.Buy;
+import model.Category;
 import model.Search_kgj;
 
 public class DAO_kgj {
@@ -79,7 +80,30 @@ public class DAO_kgj {
 				sqlSession.close();
 			}
 		}
+		System.out.println(re);
 		return re;
 	}
+	
+	public int insertBuyRegistration(Buy buy) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try {
+			re = sqlSession.getMapper(Mapper_kgj.class).insertBuyRegistration(buy);
+			if (re > 0) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
+	
 	
 }

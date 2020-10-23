@@ -95,14 +95,14 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
+                        <a href="index_kgj.kgj"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__nav">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li class="active"><a href="index_kgj.kgj">Home</a></li>
                                 <li><a href="listBuyBoard.kgj">구매 게시판</a></li>
                                 <li><a href="./blog.html">구매 등록</a></li>
                                 <li><a href="#">판매 등록</a>
@@ -160,20 +160,22 @@
                         <div class="car__filter">
                             <h5>Searching</h5>
                             <br>
-                            <form action="#">
+                            <form action="listBuyBoard.kgj" method="post">
                             	<p>대분류</p>
-                                <select name="BigClassifier">
+                                <select name="bigClassifier">
                                     <option data-display="대분류">대분류</option>
-                                    <option value="">의류</option>
-                                    <option value="">가전</option>
-                                    <option value="">전자기기</option>
+                                    <option value="의류">의류</option>
+                                    <option value="가전">가전</option>
                                 </select>
                                 <p>중분류</p>
                                 <select name="MediumClassifier">
                                     <option data-display="중분류">중분류</option>
-                                    <option value="">상의</option>
-                                    <option value="">하의</option>
-                                    <option value="">악세서리</option>
+                                    <option value="상의">상의</option>
+                                    <option value="하의">하의</option>
+                                    <option value="악세서리">악세서리</option>
+                                    <option value="냉장고">냉장고</option>
+                                    <option value="에어컨">에어컨</option>
+                                    <option value="악세서리">세탁기</option>
                                 </select>
                                 <div class="keyword-input">
                                     <p>키워드1</p>
@@ -181,11 +183,11 @@
                                 </div>
                                 <div class="keyword-input">
                                     <p>키워드2</p>
-                                    <input type="text" name="keyword1">
+                                    <input type="text" name="keyword2">
                                 </div>
                                 <div class="keyword-input">
                                     <p>키워드3</p>
-                                    <input type="text" name="keyword1">
+                                    <input type="text" name="keyword3">
                                 </div>
                                 <div class="filter-price">
                                     <p>Price:</p>
@@ -193,7 +195,7 @@
                                         <div class="filter-price-range"></div>
                                         <div class="range-slider">
                                             <div class="price-input">
-                                                <input type="text" id="filterAmount">
+                                                <input type="text" name="price" id="filterAmount">
                                             </div>
                                         </div>
                                     </div>
@@ -322,6 +324,6 @@
     <script src="/Architecture-kosta202/resources/js/mixitup.min.js"></script>
     <script src="/Architecture-kosta202/resources/js/jquery.slicknav.js"></script>
     <script src="/Architecture-kosta202/resources/js/owl.carousel.min.js"></script>
-    <script src="/Architecture-kosta202/resources/js/main.js"></script>
+    <script src="/Architecture-kosta202/resources/js/main_kgj.js"></script>
 </body>
 </html>

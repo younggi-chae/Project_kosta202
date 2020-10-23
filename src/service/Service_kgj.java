@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import dao.DAO_kgj;
 import model.Buy;
 import model.BuyListModel_kgj;
+import model.Category;
 import model.Search_kgj;
 
 public class Service_kgj {
@@ -28,11 +29,20 @@ public class Service_kgj {
 		//검색할경우
 		if(request.getParameter("bigClassifier") != null) {
 			session.removeAttribute("search");
-			search.setBigClassifier(request.getParameter("bigClassifier"));
-			search.setMediumClassifier(request.getParameter("mediumClassifier"));
-			search.setKeyword1(request.getParameter("keyword1"));
-			search.setKeyword2(request.getParameter("keyword2"));
-			search.setKeyword3(request.getParameter("keyword3"));
+			search.setBigClassifier("%"+request.getParameter("bigClassifier")+"%");
+			search.setMediumClassifier("%"+request.getParameter("mediumClassifier")+"%");
+			search.setKeyword1("%"+request.getParameter("keyword1")+"%");
+			search.setKeyword2("%"+request.getParameter("keyword2")+"%");
+			search.setKeyword3("%"+request.getParameter("keyword3")+"%");
+			
+			String price = request.getParameter("price");
+			System.out.println(price);
+			int minPrice = Integer.parseInt(price.substring(0, price.indexOf('-') - 1));
+			int maxPrice = Integer.parseInt(price.substring(price.indexOf('-') + 2));
+			System.out.println(minPrice);
+			System.out.println(maxPrice);
+			search.setMinPrice(minPrice);
+			search.setMaxPrice(maxPrice);
 			session.setAttribute("search", search);
 			System.out.println(search);
 		}
@@ -82,5 +92,44 @@ public class Service_kgj {
 	public Buy detailBuyBoardService(int buyNo) {
 		return dao.detailBuyBoard(buyNo);
 	}
+	
+	public int insertBuyRegistrationService(HttpServletRequest request)throws Exception {
+		request.setCharacterEncoding("utf-8");
+		Buy buy = new Buy();
+		
+		int categoryNo = -1;
+		if (request.getParameter("BigClassifier").equals("의류")) {
+			if (request.getParameter("MediumClassifier").equals("상의")) {
+				categoryNo = 1;
+			} else if (request.getParameter("MediumClassifier").equals("하의")) {
+				categoryNo = 2;
+			} else if (request.getParameter("MediumClassifier").equals("악세사리")) {
+				categoryNo = 3;
+			}
+		} else if (request.getParameter("BigClassifier").equals("가전")) {
+			if (request.getParameter("MediumClassifier").equals("냉장고")) {
+				categoryNo = 4;
+			} else if (request.getParameter("MediumClassifier").equals("에어컨")) {
+				categoryNo = 5;
+			} else if (request.getParameter("MediumClassifier").equals("세탁기")) {
+				categoryNo = 6;
+			}
+		}
+		
+		buy.setId("bbc234");
+		buy.setTitle(request.getParameter("title"));
+		buy.setCategoryNo(categoryNo);
+		buy.setKeyword1(request.getParameter("keyword1"));
+		buy.setKeyword2(request.getParameter("keyword2"));
+		buy.setKeyword3(request.getParameter("keyword3"));
+		buy.setType(request.getParameter("type"));
+		buy.setRegion(request.getParameter("region"));
+		buy.setMinPrice(Integer.parseInt(request.getParameter("minPrice")));
+		buy.setMaxPrice(Integer.parseInt(request.getParameter("maxPrice")));
+		
+		
+		return dao.insertBuyRegistration(buy);
+	}
+	
 	
 }
