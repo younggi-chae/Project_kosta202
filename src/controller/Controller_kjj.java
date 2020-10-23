@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.ActionForward;
+import action.DeleteSelectedSellAction_kjj;
 import action.indexAction_kjj;
 import action.registerFormAction_kjj;
 import action.registerSellAction_kjj;
@@ -53,6 +54,12 @@ public class Controller_kjj extends HttpServlet {
 		} else if (uri.equals("registerSellAction.kjj")) {
 			try {
 				forward = new registerSellAction_kjj().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (uri.equals("deleteSelectedSell.kjj")) {
+			try {
+				forward = new DeleteSelectedSellAction_kjj().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
+                        <a href="./index.html"><img src="resources/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -102,16 +102,16 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="listBuyBoard.kgj">구매 게시판</a></li>
+                                <li><a href="Controller_kgj/listBuyBoard.kgj">구매 게시판</a></li>
                                 <li><a href="./blog.html">구매 등록</a></li>
-                                <li><a href="#">판매 등록</a>
+                                <li><a href="kjj/registerFormAction.kjj">판매 등록</a>
 <!--                                     <ul class="dropdown"> -->
 <!--                                         <li><a href="./about.html">About Us</a></li> -->
 <!--                                         <li><a href="./car-details.html">Car Details</a></li> -->
 <!--                                         <li><a href="./blog-details.html">Blog Details</a></li> -->
 <!--                                     </ul> -->
                                 </li>
-                                <li><a href="./about.html">마이페이지</a></li>
+                                <li><a href="Mypage/mypageMainAction.cyg">마이페이지</a></li>
 <!--                                 <li><a href="./contact.html">Contact</a></li> -->
                             </ul>
                         </nav>
@@ -120,7 +120,7 @@
 <!--                                 <a href="#"><i class="fa fa-cart-plus"></i></a> -->
 <!--                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a> -->
 <!--                             </div> -->
-                            <a href="#" class="primary-btn">로그인/회원가입</a>
+                            <a href="controller_jsh/loginFormAction.sh" class="primary-btn">로그인/회원가입</a>
                         </div>
                     </div>
                 </div>

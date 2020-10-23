@@ -18,7 +18,7 @@ public class BuyListAction_cyg implements Action {
 		BuyListModel_cyg listModel = service.listBuyService(request);
 		request.setAttribute("listModel", listModel);		
 		forward.setRedirect(false);
-		forward.setPath("/myPage-purchase.jsp");
+		forward.setPath("../myPage-purchase.jsp");
 		return forward;
 	}
 	

@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="model.Sell" alias="Sell_kjj"/>
+		<typeAlias type="model.SelectedSellNo" alias="SelectedSellNo"/>
 	</typeAliases>
 	
 	<environments default="development">
