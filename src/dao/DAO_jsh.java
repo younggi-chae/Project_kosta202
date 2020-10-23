@@ -73,6 +73,63 @@ public class DAO_jsh {
 		return password;
 		
 	}
+	
+	public int detailInfo(Member member) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(Mapper_jsh.class).detailInfo(member);
+			
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
 
+	}
 
+	public Member getMember(String id) {
+		Member member = new Member();
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			member = sqlSession.getMapper(Mapper_jsh.class).getMember(id);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return member;
+	}
+
+	public int chk_id(String chk_id) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(Mapper_jsh.class).chk_id(chk_id);
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+
+	}
 }

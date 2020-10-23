@@ -15,14 +15,12 @@ public class loginAction_jsh implements Action {
 	
 		
 		
-		
 		int loginnum = service.loginService(request);
 		
 		if(loginnum==1) {
 			forward.setRedirect(true);
 			forward.setPath("mainAction.sh");
 		}else {
-			
 			forward.setRedirect(true);
 			forward.setPath("loginFormAction.sh");
 		}

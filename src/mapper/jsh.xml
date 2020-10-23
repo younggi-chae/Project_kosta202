@@ -7,14 +7,25 @@
 <mapper namespace="mapper.Mapper_jsh">
 	<cache />
 	<insert id="insertMember" parameterType="Member">
-	  insert into member values (#{id},#{password},#{name},#{phoneNo},#{email},#{sex},#{address},' ',' ',0,' ',' ',' ',' ')
+	  insert into member values (#{id},#{password},#{name},#{phoneNo},#{email},#{sex},#{address},' ',' ',0,'y',' ',' ',' ')
 	</insert>
 	
 	<select id="loginMember" parameterType="String" resultType="String">
 	  select password from member where id=#{id}
 	</select>
 	
+	<update id="detailInfo" parameterType="Member">
+	  update member set picture=#{picture},introduction=#{introduction} where id=#{id}
 	
+	</update>
+	
+	<select id="getMember" parameterType="String" resultType="Member">
+	  select * from member where id=#{id}
+	</select>
+	
+	<select id="chk_id" parameterType="String" resultType="int">
+	  select count(id) from member where id=#{chk_id}
+	</select>
 	
 	
 </mapper>

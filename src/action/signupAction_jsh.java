@@ -18,8 +18,8 @@ public class signupAction_jsh implements Action {
 		service.insertMemberService(request);
 
 
-		forward.setRedirect(true);
-		forward.setPath("mainAction.sh");
+		forward.setRedirect(false);
+		forward.setPath("/detailInfoForm.jsp");
 		
 		return forward;
 	}

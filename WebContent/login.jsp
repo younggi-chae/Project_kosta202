@@ -55,7 +55,7 @@
 					<div class="header__nav">
 						<nav class="header__menu">
 							<ul>
-								<li class="active"><a href="./index.html">Home</a></li>
+								<li class="active"><a href="mainAction.sh">Home</a></li>
 								<li><a href="./car.html">구매 게시판</a></li>
 								<li><a href="./blog.html">구매 등록</a></li>
 								<li><a href="#">판매 등록</a></li>
@@ -91,7 +91,7 @@
 			<div class="limiter">
 
 				<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55" style="float: left;clear:both">
-					<span class="login100-form-title p-b-32"> ㅇㅇ에 오신 것을 환영합니다<br>
+					<span class="login100-form-title p-b-32" style=""> ㅇㅇ에 오신 것을 환영합니다<br>
 					<br>
 					<br>
 					</span>
@@ -141,9 +141,13 @@
 				<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55" style="float: left; text-align: center">
 				
 				<span class="login100-form-title p-b-32" style="text-align:center">아직 회원이 아니신가요?</span>
-				<br><br><br><br><br><br><br>
-				<p>어떤 일이든, 그에 꼭 맞는 숨은 고수를 소개 받으세요.</p>
-<br><br><br><br><br><br><br><br>
+		<br><br><br><br>
+		
+		
+						<img id="user_img" src="/Architecture-kosta202/resources/img_jsh/2222.jpg" style="width:350px; height:150px; border-radius 70%; overflow: hidden" alt="" onclick="imgClick()">
+				<p>구매물품을 등록하고, 판매견적서를 받아보세요!</p>
+<br><br><br>
+
 				
 				<div class="container-login100-form-btn">
 				<a href="signupFormAction.sh" class="login100-form-btn" style="margin:auto">가입하고 서비스 요청하기
