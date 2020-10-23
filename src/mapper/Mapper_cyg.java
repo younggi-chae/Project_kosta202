@@ -18,6 +18,7 @@ public interface Mapper_cyg {
 	
 	List<Deal_Sell_cyg> listDeal(Search_cyg search, RowBounds row);
 	int countDeal(Search_cyg search);
+	Deal_Sell_cyg detailDeal(int dealNo);
 	
 	List<Sell> listSell(Search_cyg search, RowBounds row);
 	int countSell(Search_cyg search);

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.json.simple.JSONArray;
 
 import mapper.Mapper_cyg;
 import model.Buy;
@@ -102,6 +103,22 @@ public class DAO_cyg {
 			}
 		}
 		return re;		
+	}
+	
+	public Deal_Sell_cyg detailDeal(int dealNo) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		Deal_Sell_cyg deal = null;
+		
+		try {
+			deal = sqlSession.getMapper(Mapper_cyg.class).detailDeal(dealNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}		
+		return deal;
 	}
 	
 	//Sell

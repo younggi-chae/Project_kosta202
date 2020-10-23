@@ -27,6 +27,9 @@
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/style_cyg.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body>
@@ -140,7 +143,7 @@
                                 <div class="car__item__pic__slider owl-carousel">
                                    <c:choose>
                                  	<c:when test="${!empty sell.picture }">
-                                 		<img src="/Architecture-kosta202/resources/img/upload_kjj/${sell.picture }" alt="">
+                                 		<img src="/Architecture-kosta202/resources/img/upload_cyg/${sell.picture }" alt="">
                                  	</c:when>
                                  	<c:when test="${empty sell.picture }">
                                  		<img src="/Architecture-kosta202/resources/img/cars/car-1.jpg" alt="">
@@ -151,7 +154,7 @@
                                     <div class="car__item__text__inner">                                    	
                                         <div class="label-date">${deal.buyId }</div>
                                         <div class="label-date">${deal.sellId }</div>
-                                        <h5><a href="#">${deal.itemName }</a></h5>
+                                        <h5><a href="dealDetailAction.cyg?dealNo=${deal.dealNo }" rel="modal:open">${deal.itemName }</a></h5>                                       
                                         <ul>
                                             <li><span>${deal.keyword1 }</span></li>
                                             <li><span>${deal.keyword2 }</span></li>
@@ -253,6 +256,5 @@
 	<script src="/Architecture-kosta202/resources/js/jquery.slicknav.js"></script>
 	<script src="/Architecture-kosta202/resources/js/owl.carousel.min.js"></script>
 	<script src="/Architecture-kosta202/resources/js/main.js"></script>	
-}
 </body>
 </html>

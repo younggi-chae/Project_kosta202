@@ -85,7 +85,6 @@
 	}
 	
 	function imgClick() {
-		document.getElementById("fileUploadButton").click();
 	}
 	
 // 	function bigClassifierSelect(input) {

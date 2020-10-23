@@ -14,7 +14,9 @@ import action.SellListAction_cyg;
 import action.Action;
 import action.ActionForward;
 import action.BuyListAction_cyg;
+import action.DealDetailAction_cyg;
 import action.DealListAction_cyg;
+import action.IndexAction_cyg;
 import action.MemberDeleteAction;
 import action.MemberDetailAction_cyg;
 import action.MemberUpdateAction;
@@ -51,8 +53,8 @@ public class Controller_cyg extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
-    	} else if(command.equals("dealListAction.cyg")) {
+			} 
+    	}  else if(command.equals("dealListAction.cyg")) {
     		action = new DealListAction_cyg();
     		try {
 				forward = action.execute(request, response);
@@ -82,6 +84,20 @@ public class Controller_cyg extends HttpServlet {
 			}
     	} else if(command.equals("memberDeleteAction.cyg")) {
     		action = new MemberDeleteAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("indexAction.cyg")) {
+    		action = new IndexAction_cyg();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("dealDetailAction.cyg")) {
+    		action = new DealDetailAction_cyg();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

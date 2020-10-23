@@ -26,10 +26,51 @@
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="/Architecture-kosta202/resources/css/style_cyg.css" type="text/css">
-</head>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	//주소찾기 함수
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {               
+                var roadAddr = data.roadAddress; 
+                var extraRoadAddr = '';               
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }                
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }                
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+               
+                var indexOfDong = data.jibunAddress.indexOf('동');                
+                document.getElementById("sample4_jibunAddress").value = data.jibunAddress.substring(0,indexOfDong + 1);
+            
+                if(data.autoJibunAddress) {
+                    var expJibunAddr = data.autoJibunAddress;
+                    var indexOfDong = expJibunAddr.indexOf('동');                    
+                    document.getElementById("sample4_jibunAddress").value = expJibunAddr.substring(0,indexOfDong + 1);                            
+            	}
+            }
+        }).open();
+    }
+   //프로필 사진 변경
+   function uploadImg(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
 
-<body>	
-	
+			reader.onload = function(e) {
+				console.log(e.target.result);
+				document.getElementById("regImg").src = e.target.result;
+			}
+
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+</head>
+<body>		
 	<!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -104,28 +145,46 @@
 					<div class="testimonial__item__author__text">			
 						<h4>KOSTA 회원님</h4>									
 					</div><br>					
-					<div>						
-						<c:choose>
-							<c:when test="${!empty member.picture }">
+						<div>						
+							<c:if test="${member.picture != null }">
+							<c:set var="head"
+								value="${fn:substring(member.picture, 
+													0, fn:length(member.picture)-4) }"></c:set>
+							<c:set var="pattern"
+								value="${fn:substring(member.picture, 
+							fn:length(head) +1, fn:length(member.picture)) }"></c:set>
+	
+							<c:choose>
+								<c:when test="${pattern == 'jpg' || pattern == 'gif' || pattern == 'png' }">
+									<img id="regImg" src="/Architecture-kosta202/resources/img/upload_cyg/${head }_small.${pattern}" style="width: 140px; height: 140px;">
+								</c:when>
+								<c:otherwise>
+									<img src="/Architecture-kosta202/resources/img/upload_cyg/noImg.jpg">
+								</c:otherwise>
+							</c:choose>
+						</c:if>						
+						<%-- <c:choose>
+							<c:when test="${!empty member.picture }">								
 								<img src="/Architecture-kosta202/resources/img/upload_cyg/${member.picture }">
 							</c:when>
 							<c:otherwise>
 								<c:out value="NO IMAGE"></c:out>
 							</c:otherwise>
-						</c:choose>							
+						</c:choose>				 --%>			
 				 	</div><br>				  
 				  <div align="center">
-					<input type="file" id="file" name="picture" style="display: none;" />
+					<input type="file" id="file" name="picture" onchange="uploadImg(this)" style="display: none;" />
 					<input type="button" value="프로필 사진 변경" onclick="document.getElementById('file').click();" />
 				 </div>				
 				</div>				
 			</div>			
 				<input type="hidden" name="id" value="${member.id }">
 				<p>이름</p><div><input type="text" name="name" value="${member.name }" placeholder="이름 변경.."></div><br>
-				<p>비밀번호</p><div><input type="password" name="password" value="${member.name }" placeholder="비밀번호 변경.."></div><br>		
+				<p>비밀번호</p><div><input type="password" name="password" value="${member.password }" placeholder="비밀번호 변경.."></div><br>		
 				<p>이메일</p><div><input type="text" name="email" value="${member.email }" placeholder="이메일 변경.."></div><br>
 				<p>전화번호</p><div><input type="text" name="phoneno" value="${member.phoneNo }" placeholder="전화번호 변경.."></div><br>				
-				<p>주소</p><div><input type="text" name="address" value="${member.address }" placeholder="주소 변경.."></div><br>				
+				<p>주소</p><div><input type="text" name="address" id="sample4_jibunAddress"  value="${member.address }" placeholder="주소 변경.."></div>
+						  <div> <input type="button" onclick="sample4_execDaumPostcode()" value="지역 찾기"></div><br>				
 				<p>한줄소개</p><div><input type="text" name="introduction" value="${member.introduction }" placeholder="한줄소개 변경.."></div><br>				
 				<input type="submit" value="정보수정">			
 			</form>									

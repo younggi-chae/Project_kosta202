@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -98,7 +100,22 @@
 		<div class="testimonial__item">
 			<div class="testimonial__item__author">
 				<div class="testimonial__item__author__pic">
-					<img src="/Architecture-kosta202/resources/img/testimonial/testimonial-1.png" alt="">
+					<c:if test="${member.picture != null }">
+							<c:set var="head"
+								value="${fn:substring(member.picture, 
+													0, fn:length(member.picture)-4) }"></c:set>
+							<c:set var="pattern"
+								value="${fn:substring(member.picture, 
+							fn:length(head) +1, fn:length(member.picture)) }"></c:set>	
+							<c:choose>
+								<c:when test="${pattern == 'jpg' || pattern == 'gif' || pattern == 'png' }">
+									<img src="/Architecture-kosta202/resources/img/upload_cyg/${head }_small.${pattern}" style="width: 80px; height: 80px;">
+								</c:when>
+								<c:when test="${empty member.picture }">
+									<img src="/Architecture-kosta202/resources/img/upload_cyg/noImg.jpg" style="width: 80px; height: 80px;">
+								</c:when>
+							</c:choose>
+						</c:if>						
 				</div>
 				<div class="testimonial__item__author__text">
 					<div class="rating">
@@ -108,9 +125,9 @@
 					</div>
 				
 					<h5>						
-						KOSTA 고객님&emsp; <span><a href="memberDetailAction.cyg?id=bbb">정보 수정</a></span>								
+						${member.id } 고객님&emsp; <span><a href="memberDetailAction.cyg?id=${member.id }">정보 수정</a></span>								
 					</h5>															
-					<span>dudrl5555@naver.com</span>					
+					<span>${member.email }</span>					
 				</div>
 			</div>			
 		</div>

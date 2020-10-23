@@ -14,7 +14,7 @@ import model.Buy;
 
 import model.DealListModel_cyg;
 import model.Deal_Sell_cyg;
-
+import model.ImageUtil_cyg;
 import model.Member;
 import model.BuyListModel_cyg;
 import model.Search_cyg;
@@ -33,6 +33,7 @@ public class Service_cyg {
 		return service;
 	}
 	
+	//buy
 	public BuyListModel_cyg listBuyService(HttpServletRequest request) throws Exception {
 		
 		request.setCharacterEncoding("utf-8");		
@@ -76,6 +77,7 @@ public class Service_cyg {
 		return listModel;
 	}
 	
+	//deal
 	public DealListModel_cyg listDealService(HttpServletRequest request) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		Search_cyg search = new Search_cyg();
@@ -119,6 +121,11 @@ public class Service_cyg {
 		return listModel;
 	}
 	
+	public Deal_Sell_cyg detailDealService(int dealNo) throws Exception {
+		return dao.detailDeal(dealNo);
+	}
+	
+	//sell
 	public SellListModel_cyg listSellService(HttpServletRequest request) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		Search_cyg search = new Search_cyg();
@@ -159,8 +166,10 @@ public class Service_cyg {
 		List<Sell> list = dao.listSell(search, startRow);
 		SellListModel_cyg listModel = new SellListModel_cyg(list, requestPage, totalPageCount, startPage, endPage);
 		return listModel;
-	}	
+	}
 	
+	
+	//Member
 	public int updateMemberService(HttpServletRequest request) throws Exception {		
 		request.setCharacterEncoding("utf-8");
 		
@@ -183,8 +192,23 @@ public class Service_cyg {
 		
 		if(multi.getFilesystemName("picture") != null) {
 			String picture = (String)multi.getFilesystemName("picture");
-			member.setPicture(picture);
-		}		
+			member.setPicture(picture);				
+				
+			String pattern = picture.substring(picture.indexOf(".") +1); 
+			String head = picture.substring(0, picture.indexOf("."));
+			
+			
+			String imagePath = uploadPath + "\\" + picture;
+			File src = new File(imagePath);
+						
+			String thumPath = uploadPath + "\\" + head + "_small." + pattern;
+			File dest = new File(thumPath);
+			
+			if(pattern.equals("gif") || pattern.equals("jpg") || pattern.equals("png")) {
+				ImageUtil_cyg.resize(src, dest, 100, ImageUtil_cyg.RATIO);
+			}
+		}	
+		
 		return dao.updateMember(member);
 	}
 	
