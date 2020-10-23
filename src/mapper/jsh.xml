@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -30,26 +29,3 @@
 	
 	
 </mapper>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
-
-<mapper namespace="mapper.Mapper_jsh">
-	<cache />
-	<insert id="insertMember" parameterType="Member">
-	  insert into member values (#{id},#{password},#{name},#{phoneNo},#{email},#{sex},#{address},' ',' ',0,' ',' ',' ',' ')
-	</insert>
-	
-	<select id="loginMember" parameterType="String" resultType="String">
-	  select password from member where id=#{id}
-	</select>
-	
-	
-	
-	
-</mapper>
->>>>>>> 6a6f43c4fe3c70caa3702d7a17defbb0d78e834c
-
