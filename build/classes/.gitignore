@@ -1,6 +1,12 @@
 /action/
-/mapper/
 /controller/
 /dao/
+/mapper/
 /model/
+/mybatis-config_cyg.xml
+/mybatis-config_jsh.xml
+/mybatis-config_kgj.xml
+/mybatis-config_kjj.xml
+/mybatis-config_krg.xml
+/mybatis-config_original.xml
 /service/
