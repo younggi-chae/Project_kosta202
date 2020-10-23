@@ -311,5 +311,4 @@
     <script src="/Architecture-kosta202/resources/js/owl.carousel.min.js"></script>
     <script src="/Architecture-kosta202/resources/js/main.js"></script>
 </body>
-
 </html>

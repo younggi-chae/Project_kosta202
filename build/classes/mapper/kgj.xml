@@ -4,28 +4,43 @@
 
 <mapper namespace="mapper.Mapper_kgj">
 	<cache />
-	<select id="listBuyBoard" resultType="Buy">
-		select * from buy order by buyno desc
+<!-- 	<select id="listBuyBoard" resultType="Buy"> -->
+<!-- 		select * from buy order by buyno desc -->
+<!-- 	</select> -->
+	
+	<select id="listBuyBoard" parameterType="Search_kgj" resultType="Buy">
+		select * from buy A
+			<if test="bigClassifier != null">
+						inner join category B on A.categoryno = B.categoryno
+  						where B.BIGCLASSIFIER like #{bigClassifier} and B.MEDIUMCLASSIFIER like #{mediumClassifier}
+  							and A.MINPRICE <![CDATA[>]]>= #{minPrice} or A.MAXPRICE <![CDATA[<]]>= #{maxPrice}
+  							and (A.KEYWORD1 like #{keyword1} or A.KEYWORD1 like #{keyword2} or A.KEYWORD1 like #{keyword3}
+  							and A.KEYWORD2 like #{keyword1} or A.KEYWORD2 like #{keyword2} or A.KEYWORD2 like #{keyword3}
+  							and A.KEYWORD3 like #{keyword1} or A.KEYWORD3 like #{keyword2} or A.KEYWORD3 like #{keyword3})
+  			</if>
+  				order by buyno desc
 	</select>
 	
 	<select id="detailBuyBoard" parameterType="int" resultType="Buy">
 		select * from buy where buyno = #{buyno}
 	</select>
 	
+	<select id="countBuyBoard" parameterType="Search_kgj" resultType="int">
+		select count(*) from buy A
+			<if test="bigClassifier != null">
+  						inner join category B on A.categoryno = B.categoryno
+  						where B.BIGCLASSIFIER like #{bigClassifier} and B.MEDIUMCLASSIFIER like #{mediumClassifier}
+  							and A.MINPRICE <![CDATA[>]]>= #{minPrice} or A.MAXPRICE <![CDATA[<]]>= #{maxPrice}
+  							and (A.KEYWORD1 like #{keyword1} or A.KEYWORD1 like #{keyword2} or A.KEYWORD1 like #{keyword3}
+  							and A.KEYWORD2 like #{keyword1} or A.KEYWORD2 like #{keyword2} or A.KEYWORD2 like #{keyword3}
+  							and A.KEYWORD3 like #{keyword1} or A.KEYWORD3 like #{keyword2} or A.KEYWORD3 like #{keyword3})
+  			</if>
+	</select>
+	
+	<insert id="insertBuyRegistration" parameterType="Buy">
+		insert into buy values(seq_buyno_buy.nextval, #{id}, #{title}, #{categoryNo}, 
+								#{keyword1}, #{keyword2}, #{keyword3}, #{type}, #{region}, #{minPrice}, #{maxPrice}, '등록')
+	</insert>
+	
 	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
