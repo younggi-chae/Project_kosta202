@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import dao.MypageDAO_cyg;
+import dao.DAO_cyg;
 import model.Buy;
 
 import model.DealListModel_cyg;
@@ -17,12 +17,12 @@ import model.Search_cyg;
 
 public class MypageService_cyg {
 	private static MypageService_cyg service = new MypageService_cyg();
-	private static MypageDAO_cyg dao;	
+	private static DAO_cyg dao;	
 	private static final int PAGE_SIZE = 5;
 	private static final int PAGE_SIZE2 = 9;
 	
 	public static MypageService_cyg getInstance() {
-		dao = MypageDAO_cyg.getInstance();
+		dao = DAO_cyg.getInstance();
 		return service;
 	}
 	

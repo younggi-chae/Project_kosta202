@@ -54,7 +54,7 @@ public class Service_jsh {
 		
 
 		
-		if(session.getAttribute("id")!=null) {  //·Î±×ÀÎ »óÅÂ
+		if(session.getAttribute("id")!=null) {  //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			String id=(String)session.getAttribute("id");
 		}else {
 			if(chk_password.equals(password2)) {
@@ -62,7 +62,7 @@ public class Service_jsh {
 			}
 		}
 		
-		
+		System.out.println(session.getAttribute("id"));
 		
 		if(chk_password.equals(password2)) {
 			return 1;

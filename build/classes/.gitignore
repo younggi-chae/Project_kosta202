@@ -1,6 +1,6 @@
 /action/
-/mapper/
-/controller/
-/dao/
-/model/
 /service/
+/mapper/
+/model/
+/dao/
+/controller/

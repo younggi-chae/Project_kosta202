@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import mapper.Mapper_kjj;
+import model.SelectedSellNo;
 import model.Sell;
 
 public class DAO_kjj {
@@ -35,6 +36,26 @@ public class DAO_kjj {
 		try {
 			System.out.println("sell in DAO : " + sell);
 			re = sqlSession.getMapper(Mapper_kjj.class).registerSell(sell);
+			if (re > 0) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+	
+	public void deleteSelectedSell(SelectedSellNo selectedSellNo) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			System.out.println("sell in DAO : " + selectedSellNo);
+			re = sqlSession.getMapper(Mapper_kjj.class).deleteSelectedSell(selectedSellNo);
 			if (re > 0) {
 				sqlSession.commit();
 			} else {

@@ -19,11 +19,11 @@
 <link rel="stylesheet" type="text/css"
 	href="/Architecture-kosta202/resources/vendor_jsh/css-hamburgers/hamburgers.min.css">
 <link rel="stylesheet" type="text/css"
-	href="/Architecture-kosta202/resources/vendor_jsh/animsition/css_jsh/animsition.min.css">
+	href="/Architecture-kosta202/resources/vendor_jsh/animsition/css/animsition.min.css">
 <link rel="stylesheet" type="text/css"
-	href="/Architecture-kosta202/resources//Architecture-kosta202/resources/vendor_jsh/select2/select2.min.css">
+	href="/Architecture-kosta202/resources/vendor_jsh/select2/select2.min.css">
 <link rel="stylesheet" type="text/css"
-	href="/Architecture-kosta202/resources//Architecture-kosta202/resources/vendor_jsh/daterangepicker/daterangepicker.css">
+	href="/Architecture-kosta202/resources/vendor_jsh/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="/Architecture-kosta202/resources/css/util_jsh.css">
 <link rel="stylesheet" type="text/css" href="/Architecture-kosta202/resources/css/main_jsh.css">
 
@@ -43,38 +43,74 @@
 
 
 	<!-- Header Section Begin -->
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-2">
-					<div class="header__logo">
-						<a href="./index.html"><img src="img/logo.png" alt=""></a>
-					</div>
-				</div>
-				<div class="col-lg-10">
-					<div class="header__nav">
-						<nav class="header__menu">
-							<ul>
-								<li class="active"><a href="./index.html">Home</a></li>
-								<li><a href="./car.html">구매 게시판</a></li>
-								<li><a href="./blog.html">구매 등록</a></li>
-								<li><a href="#">판매 등록</a></li>
-								<li><a href="./about.html">마이페이지</a></li>
-
-							</ul>
-						</nav>
-						<div class="header__nav__widget">
-							<a href="#" class="primary-btn">로그인/회원가입</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="canvas__open">
-				<span class="fa fa-bars"></span>
-			</div>
-		</div>
-	</header>
-	<!-- Header Section End -->
+    <header class="header">
+<!--         <div class="header__top"> -->
+<!--             <div class="container"> -->
+<!--                 <div class="row"> -->
+<!--                     <div class="col-lg-7"> -->
+<!--                         <ul class="header__top__widget"> -->
+<!--                             <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li> -->
+<!--                             <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li> -->
+<!--                         </ul> -->
+<!--                     </div> -->
+<!--                     <div class="col-lg-5"> -->
+<!--                         <div class="header__top__right"> -->
+<!--                             <div class="header__top__phone"> -->
+<!--                                 <i class="fa fa-phone"></i> -->
+<!--                                 <span>(+12) 345 678 910</span> -->
+<!--                             </div> -->
+<!--                             <div class="header__top__social"> -->
+<!--                                 <a href="#"><i class="fa fa-facebook"></i></a> -->
+<!--                                 <a href="#"><i class="fa fa-twitter"></i></a> -->
+<!--                                 <a href="#"><i class="fa fa-google"></i></a> -->
+<!--                                 <a href="#"><i class="fa fa-instagram"></i></a> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="resources/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="Controller_kgj/listBuyBoard.kgj">구매 게시판</a></li>
+                                <li><a href="./blog.html">구매 등록</a></li>
+                                <li><a href="kjj/registerFormAction.kjj">판매 등록</a>
+<!--                                     <ul class="dropdown"> -->
+<!--                                         <li><a href="./about.html">About Us</a></li> -->
+<!--                                         <li><a href="./car-details.html">Car Details</a></li> -->
+<!--                                         <li><a href="./blog-details.html">Blog Details</a></li> -->
+<!--                                     </ul> -->
+                                </li>
+                                <li><a href="Mypage/mypageMainAction.cyg">마이페이지</a></li>
+<!--                                 <li><a href="./contact.html">Contact</a></li> -->
+                            </ul>
+                        </nav>
+                        <div class="header__nav__widget">
+<!--                             <div class="header__nav__widget__btn"> -->
+<!--                                 <a href="#"><i class="fa fa-cart-plus"></i></a> -->
+<!--                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a> -->
+<!--                             </div> -->
+                            <a href="controller_jsh/loginFormAction.sh" class="primary-btn">로그인/회원가입</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
 
 
 	<section class="services spad">
@@ -214,7 +250,7 @@
 
 
 
-	<script src="Architecture-kosta202/resources/vendor_jsh/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/Architecture-kosta202/resources/vendor_jsh/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/Architecture-kosta202/resources/vendor_jsh/animsition/js/animsition.min.js"></script>
 	<script src="/Architecture-kosta202/resources/vendor_jsh/bootstrap/js/popper.js"></script>
 	<script src="/Architecture-kosta202/resources/vendor_jsh/bootstrap/js/bootstrap.min.js"></script>

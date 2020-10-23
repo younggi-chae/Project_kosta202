@@ -53,11 +53,37 @@
 
     <!-- Header Section Begin -->
     <header class="header">
+<!--         <div class="header__top"> -->
+<!--             <div class="container"> -->
+<!--                 <div class="row"> -->
+<!--                     <div class="col-lg-7"> -->
+<!--                         <ul class="header__top__widget"> -->
+<!--                             <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li> -->
+<!--                             <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li> -->
+<!--                         </ul> -->
+<!--                     </div> -->
+<!--                     <div class="col-lg-5"> -->
+<!--                         <div class="header__top__right"> -->
+<!--                             <div class="header__top__phone"> -->
+<!--                                 <i class="fa fa-phone"></i> -->
+<!--                                 <span>(+12) 345 678 910</span> -->
+<!--                             </div> -->
+<!--                             <div class="header__top__social"> -->
+<!--                                 <a href="#"><i class="fa fa-facebook"></i></a> -->
+<!--                                 <a href="#"><i class="fa fa-twitter"></i></a> -->
+<!--                                 <a href="#"><i class="fa fa-google"></i></a> -->
+<!--                                 <a href="#"><i class="fa fa-instagram"></i></a> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="/Architecture-kosta202/resources/img/logo.png" alt=""></a>
+                        <a href="./index.html"><img src="resources/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -65,15 +91,25 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./car.html">구매 게시판</a></li>
+                                <li><a href="Controller_kgj/listBuyBoard.kgj">구매 게시판</a></li>
                                 <li><a href="./blog.html">구매 등록</a></li>
-                                <li><a href="#">판매 등록</a>
+                                <li><a href="kjj/registerFormAction.kjj">판매 등록</a>
+<!--                                     <ul class="dropdown"> -->
+<!--                                         <li><a href="./about.html">About Us</a></li> -->
+<!--                                         <li><a href="./car-details.html">Car Details</a></li> -->
+<!--                                         <li><a href="./blog-details.html">Blog Details</a></li> -->
+<!--                                     </ul> -->
                                 </li>
-                                <li><a href="./about.html">마이페이지</a></li>
+                                <li><a href="Mypage/mypageMainAction.cyg">마이페이지</a></li>
+<!--                                 <li><a href="./contact.html">Contact</a></li> -->
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
-                            <a href="#" class="primary-btn">로그인/회원가입</a>
+<!--                             <div class="header__nav__widget__btn"> -->
+<!--                                 <a href="#"><i class="fa fa-cart-plus"></i></a> -->
+<!--                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a> -->
+<!--                             </div> -->
+                            <a href="controller_jsh/loginFormAction.sh" class="primary-btn">로그인/회원가입</a>
                         </div>
                     </div>
                 </div>
@@ -83,8 +119,7 @@
             </div>
         </div>
     </header>
-   
-    <!-- Header Section End -->	
+    <!-- Header Section End -->
 	<section class="services spad">
 		<div class="container">
 			<div class="row">
@@ -106,7 +141,7 @@
                     <div class="car__filter__option" style="height: 74px; background-color: white;">                    
                         <div class="row">
                              <div class="col-lg-8 col-md-6">
-                                <a href="#" class="primary-btn">선택삭제</a>&emsp;
+                                <a href="#" class="primary-btn" onclick="deleteSelected()">선택삭제</a>&emsp;
                                 <a href="#" class="primary-btn">전체삭제</a>&emsp;                               
                            		<a href="#" class="primary-btn">관심리스트 추가</a>
                             </div>
@@ -132,7 +167,8 @@
                     		
                     		<c:when test="${!empty listModel.list }"> 
                     			<c:forEach var="sell" items="${listModel.list }">            	
-                        <div class="col-lg-4 col-md-4">
+                        	<c:if test="${sell.status == '등록'}">
+                        	<div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
                                  <c:choose>
@@ -155,12 +191,13 @@
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option sale" style="background-color: #d2d2d2;"><input type="checkbox"></span>
+                                        <span class="car-option sale" style="background-color: #d2d2d2;"><input type="checkbox" onchange="selectFunction(this, ${sell.sellNo})"></span>
                                         <h6><fmt:formatNumber type="number" maxFractionDigits="3" value="${sell.price }"/></h6>
                                     </div>
                                 </div>
                             </div>                             
                         </div>
+                        	</c:if>
                          </c:forEach>
                         </c:when>
                         </c:choose>                         
@@ -240,6 +277,31 @@
 	<script src="/Architecture-kosta202/resources/js/jquery.slicknav.js"></script>
 	<script src="/Architecture-kosta202/resources/js/owl.carousel.min.js"></script>
 	<script src="/Architecture-kosta202/resources/js/main.js"></script>
+	<script type="text/javascript">
+var list = new Array();
+
+ function selectFunction(input, sellNo) {
+	if (input.checked == true) {
+		list.push(sellNo);
+		console.log(list);
+	} else {
+		var index = list.indexOf(sellNo);
+		if (index > -1) {
+			list.splice(index, 1);
+			console.log(list);
+		}
+	}
+}
+ function deleteSelected() {
+	 if (list != "") {
+		 console.log("삭제 시작");
+			location.href = "../kjj/deleteSelectedSell.kjj?list=" + list;
+	}
+	 else {
+		 console.log("선택된 항목이 없습니다.");
+	 }
+}
+</script>
 	
 </body>
 </html>

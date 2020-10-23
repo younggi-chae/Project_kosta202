@@ -1,6 +1,7 @@
 package service;
 
 import dao.DAO_kjj;
+import model.SelectedSellNo;
 import model.Sell;
 
 public class Service_kjj {
@@ -15,5 +16,10 @@ public class Service_kjj {
 	public void registerSell(Sell sell) {
 		System.out.println("sell in service : " + sell);
 		dao.registerSell(sell);
+	}
+	
+	public void deleteSelectedSell(SelectedSellNo selectedSellNo) {
+		System.out.println("selectedSellNo in service : " + selectedSellNo);
+		dao.deleteSelectedSell(selectedSellNo);
 	}
 }
