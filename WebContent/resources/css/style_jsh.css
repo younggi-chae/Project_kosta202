@@ -168,7 +168,7 @@ ol {
 	padding: 12px 24px;
 	color: #ffffff;
 	font-weight: 700;
-	background: #db2d2e;
+	background: gray;
 	border-radius: 2px;
 }
 
@@ -178,7 +178,7 @@ ol {
 	font-weight: 700;
 	display: inline-block;
 	padding: 15px 35px 12px 38px;
-	background: #db2d2e;
+	background: gray;
 	border: none;
 	border-radius: 2px;
 }
@@ -1396,6 +1396,60 @@ ol {
 	font-weight: 700;
 }
 
+.home-main-section {
+    padding: 6rem 0;
+}
+
+.background-pale-green {
+   background-image: url(/Architecture-kosta202/resources/img_jsh/222.jpg);
+}
+
+.home-main-section .home-main-content {
+    width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-main-section .home-main-image-02 {
+    background-size: 546px 740px;
+    width: 546px;
+    height: 740px;
+}
+
+.home-main-section .home-main-title {
+    font-size: 4rem;
+    line-height: 1.35;
+    margin-bottom: 2.4rem;
+}
+
+..text-m {
+    font-size: 1.6rem !important;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+}
+
+.home-main-section .home-story-list {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.home-main-section .home-story-list .icon-story-01 {
+    background-image: url(/Architecture-kosta202/resources/img_jsh_222.jpg);
+}
+
+.mt-3 {
+    margin-top: 1.6rem;
+}
+
+.text-xs {
+    font-size: 1.3rem !important;
+    line-height: 1.5;
+}
+
 .footer__contact__option {
 	text-align: right;
 }
@@ -1403,7 +1457,7 @@ ol {
 .footer__contact__option .option__item {
 	font-size: 15px;
 	color: #ffffff;
-	background: #db2d2e;
+	background: gray;
 	display: inline-block;
 	font-weight: 700;
 	padding: 14px 18px 14px 24px;
@@ -3706,4 +3760,5 @@ ol {
 		font-size: 24px;
 		width: 100%;
 	}
+
 }

@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.ActionForward;
+import action.detailInfoAction_jsh;
+import action.detailInfoFormAction_jsh;
+import action.idCheckAction_jsh;
 import action.loginAction_jsh;
 import action.loginFormAction_jsh;
 import action.logoutAction_jsh;
@@ -81,6 +84,27 @@ public class Controller_jsh extends HttpServlet {
 			}
     	}else if(command.equals("logoutAction.sh")) {
     		action = new logoutAction_jsh();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("detailInfoFormAction.sh")) {
+    		action = new detailInfoFormAction_jsh();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("detailInfoAction.sh")) {
+    		action = new detailInfoAction_jsh();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("idCheckAction.sh")) {
+    		action = new idCheckAction_jsh();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

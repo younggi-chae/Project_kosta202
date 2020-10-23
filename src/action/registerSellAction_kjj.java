@@ -10,9 +10,6 @@ import javax.swing.JOptionPane;
 
 import org.apache.catalina.Session;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 import model.Sell;
 import service.Service_kjj;
 
